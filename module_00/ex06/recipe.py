@@ -102,10 +102,10 @@ def main():
                 print("\nCookbook closed. Goodbye !")
                 break
             case '':
-                print("\r")
+                print('',end="\r")
             case _ :
-                print("\nSorry, this option does not exist")
-                print("List of available option:\n   1: Add a recipe\n   2: Delete a recipe\n   3: Print a recipe\n   4: Print the cookbook\n   5: Quit\n")              
+                print("\nSorry, this option does not exist.")
+                print("List of available option:\n   1: Add a recipe\n   2: Delete a recipe\n   3: Print a recipe\n   4: Print the cookbook\n   5: Quit")              
                 
     return
 
