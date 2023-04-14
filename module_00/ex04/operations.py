@@ -1,17 +1,24 @@
- #!/usr/bin/env python
+#!/usr/bin/env python
+
+# Python program that takes two integers A and B as arguments and prints the result of the following operations:
+# Sum: A+B
+# Difference: A-B
+# Product: A*B
+# Quotient: A/B
+# Remainder: A%B
 
 import sys
 
+# Print Error Messages without Traceback
+sys.tracebacklimit = 0
 
+# Main function
 def main():
-    
-    # Print Error Messages without Traceback
-    sys.tracebacklimit = 0
-    
-    # store arguments in a list
+
+    # store user arguments in a list
     arguments = sys.argv
 
-    # check number of arguments provided and if integer
+    # Check number of arguments provided and if these are integers
     if len(arguments) == 1:    # no arguments provided
         print("Usage: python operations.py <number1> <number2>")
         print("Example:\n   python operations.py 10 3")
@@ -39,7 +46,7 @@ def main():
     elif len(arguments) > 3:    # too many arguments
         raise AssertionError("too many argumnets")    
     
-    else:   # 2 arguments provided but any or all of them not digit
+    else:   # 2 arguments provided but any or all of them not integer
         raise AssertionError("only integers")
     
 
