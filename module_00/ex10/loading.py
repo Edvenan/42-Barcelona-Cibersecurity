@@ -43,11 +43,13 @@ def ft_progress(lst):
         eta = elapsed_time * (100 - percentage)/percentage
         
         # Progress bar printing
-        print("ETA: {:>5,.2f}s [{:>2,.0f}%] [{:<20}] {}/{} | elapsed time {:,.2f}s.".format(eta, percentage, progress, iterations, total_iterations, elapsed_time), end="\r")
-        
-        # Print dotted line when percentage = 100%
-        if percentage == 100:
+        if percentage < 100:
+            print("ETA: {:>5,.2f}s [ {:,.0f}%] [{:<20}] {}/{} | elapsed time {:,.2f}s.".format(eta, percentage, progress, iterations, total_iterations, elapsed_time), end="\r")
+        else:
+            # When percentage = 100%, remove leading space of percentage field and Print dotted line 
+            print("ETA: {:>5,.2f}s [{:,.0f}%] [{:<20}] {}/{} | elapsed time {:,.2f}s.".format(eta, percentage, progress, iterations, total_iterations, elapsed_time), end="\r")
             print("\n...", end='')
+        
         
 
 # main function

@@ -71,7 +71,7 @@ def add_recipe(cookbook):
     # enter prep time
     prep_time = ''
     # Ask for prep time until one is given and is an integer
-    while (prep_time == '' or not prep_time.isdigit()):
+    while (prep_time == '' or not prep_time.isdigit() or (prep_time.isdigit() and int(prep_time)<0) ):
         prep_time = input('>>> Enter a preparation time:\n')
     
     # store new recipe in the cookbook
@@ -83,7 +83,7 @@ def main():
     
     # User Menu
     print("Welcome to the Python Cookbook !")
-    print("List of available option:\n   1: Add a recipe\n   2: Delete a recipe\n   3: Print a recipe\n   4: Print the cookbook\n   5: Quit")
+    print("List of available options:\n   1: Add a recipe\n   2: Delete a recipe\n   3: Print a recipe\n   4: Print the cookbook\n   5: Quit")
     
     # Ask user input until option 5 is chosen
     while (True):

@@ -28,6 +28,16 @@ def main():
         try:
             option = int(option)
             
+            # back door to know secret number without incrementing attempts
+            global secret_number
+            if option == 999: 
+                print("The Secret number is ",secret_number)
+                attempts -= 1
+            elif option == 666:
+                secret_number = 42
+                print("Secret number secretely set to 42")
+                attempts -= 1
+                
             # Increment attempts counter
             attempts += 1
             
