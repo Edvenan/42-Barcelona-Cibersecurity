@@ -21,6 +21,8 @@ recipe2 = Recipe('Paella', 4, 45, ['rice', 'tomatoes', 'squid', 'peper'], 'lunch
 recipe3 = Recipe('Salad', 2, 10, ['lettuce', 'tomatoes', 'onion', 'corn'], 'starter')
 recipe4 = Recipe('Cake', 5, 60, ['flour', 'eggs', 'milk', 'chocolate'], 'dessert')
 
+print(str(recipe1))
+
 # Bad Recipes creation tests
 
 # TEST 1: Missing Data. A 'recipe name' must be provided at object creation
