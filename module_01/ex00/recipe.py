@@ -56,7 +56,8 @@ class Recipe:
 
     
     def __str__(self):
-        """Return the string to print with the recipe info"""
+        """When you find in the code 'print(reicpe)' this function will return the
+           following string with the recipe info"""
         
         text1 = f"\nRecipe Name: {self.name}\n"
         text2 = f"   Cooking Level: {self.cooking_lvl}\n"
