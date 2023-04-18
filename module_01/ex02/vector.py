@@ -5,11 +5,27 @@ vectors and be able to perform mathematical operations with them. """
 
 class Vector:
     
-    def __init__(self, values:list):
+    def __init__(self, values):
         
         # values error handling
         if not isinstance(values, list):
-            raise TypeError(f"Vector 'values' must be a list.")
+            if isinstance(values, int) and values > 0:
+                new_values = []
+                for i in range(values):
+                    new_values.append([float(i)])
+                    
+                    values = new_values
+                    
+            elif isinstance(values, tuple) and isinstance(values[0], int) and\
+                isinstance(values[1], int) and values[0]>=0 and values[1]>values[0]:
+                    new_values = []
+                    for i in range(values[0], values[1]):
+                        new_values.append([float(i)])
+                    
+                    values = new_values
+                        
+            else:                
+                raise TypeError(f"Vector 'values' must be a list or an integer greater than zero.")
         # Column vectors length must be >= 2
         # Row vectors length must be == 1
         
@@ -247,5 +263,9 @@ class Vector:
         raise NotImplementedError(f"Division of a scalar by a Vector is not defined here.")
 
     def __str__(self):
+        return str(self.values)
+    
+    def __repr__(self):
+        # return f"Vector({str(self.values)})"
         return str(self.values)
 

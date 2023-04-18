@@ -52,4 +52,7 @@ print('')
 
 print(v2.values)
 print(v2.shape)
-print(v2.T()) 
+print(v2.T().shape) 
+
+print(str(v1))
+print(repr(v1))
