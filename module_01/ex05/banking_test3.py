@@ -4,7 +4,7 @@ if __name__ == "__main__":
     bank = Bank()
     acc_valid_1 = Account('Sherlock Holmes',
                           zip='NW1 6XE',
-                          addr='221B Baker street'
+                          addr='221B Baker street',
                           value=1000.0)
     acc_valid_2 = Account('James Watson',
                           zip='NW1 6XE',
@@ -33,8 +33,11 @@ if __name__ == "__main__":
                             addr='France',
                             value=42)
     
-    bank.add(acc_valid_1)
-    bank.add()
+    print(bank.add(acc_valid_1))
+    print(bank.add(acc_valid_2))
+    print(bank.add(acc_invalid_4))
+    print(bank.transfer('Sherlock Holmes', "Douglass", 1000.0))
+    print(bank.add(acc_invalid_4))
 
     #if bank.transfer('William John', 'Smith Jane', 1000.0) is False:
     #    print('Failed')

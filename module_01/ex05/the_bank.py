@@ -48,6 +48,7 @@ class Bank(object):
             return False
         else:
             self.accounts.append(new_account)
+            return True
     
     def transfer(self, origin, dest, amount):
         """" Perform the fund transfer
@@ -110,24 +111,71 @@ class Bank(object):
             acc_corrupted, acc_fails = self.is_corrupted(target_acc)
             if acc_corrupted:
                 # Account is corrupted
-                if 'value' in acc_fails:
-                    val = getattr(target_acc, 'value', None)
-                    if val.isdecimal() or val.isdigit():
-                        setattr(target_acc, 'value', float(val))
+                
+                while(acc_corrupted):
+                    # while is corrupted, apply fixes
+                    if len(acc_fails) == 1 and 'even' in acc_fails:
+                        # if the only issue is 'even',we fix it. Otherwise, 
+                        # fix the others first
+                        # create a dummy attr calledd 'other'
+                        setattr(target_acc, 'other', '')
                     else:
-                        setattr(target_acc, 'value', 0.0)
-                if 'id' in acc_fails:
-                    i = getattr(target_acc, 'id', None)
-                    if i.isdigit():
-                        setattr(target_acc, 'id', int(i))
-                    else:
-                        setattr(target_acc, 'id', Account.ID_COUNT)
-                        Account.ID_COUNT += 1
+                        # we fix the rest of issues
+                        if 'value_type' in acc_fails:
+                            val = getattr(target_acc, 'value', None)
+                            if val.isdecimal() or val.isdigit():
+                                setattr(target_acc, 'value', float(val))
+                            else:
+                                setattr(target_acc, 'value', 0.0)
+                        if 'id_int' in acc_fails:
+                            i = getattr(target_acc, 'id', None)
+                            if i.isdigit():
+                                setattr(target_acc, 'id', int(i))
+                            else:
+                                setattr(target_acc, 'id', Account.ID_COUNT)
+                                Account.ID_COUNT += 1
+                        if "name_str" in acc_fails:
+                            setattr(target_acc, 'name', name)
+                        if "no_name" in acc_fails:
+                            setattr(target_acc, 'name', name)
+                        if "no_id" in acc_fails:
+                            setattr(target_acc, 'id', Account.ID_COUNT)
+                            Account.ID_COUNT += 1
+                        if "no_value" in acc_fails:
+                            setattr(target_acc, 'value', 0.0)
+                        if "addr" in acc_fails:
+                            setattr(target_acc, 'addr', '')
+                        if "zip" in acc_fails:
+                            setattr(target_acc, 'zip', 0)
+                        if "b" in acc_fails:
+                            # get accounts attributes
+                            acc_attrs = list(target_acc.__dict__.keys())
+                            for attribute in acc_attrs:
+                                # identify the attribute starting with 'b'
+                                if attribute[0].lower() == 'b' and len(attribute) > 1:
+                                    # identified and attr name is longer than 'b'
+                                    # we strip the 'b' from the attr name, create a new attr with such name,
+                                    # we copy the attr val in the new attr, and delete the wrong attr
+                                    if (attribute[1:] in acc_attrs):
+                                        # if attr name after stripping 'b' is equal to the name of another
+                                        # existing attribute, we add a prefix 'fixed_'to the stripped name
+                                        setattr(target_acc, 'fixed_'+attribute[1:], getattr(target_acc, attribute, None))
+                                        delattr(target_acc, attribute)
+                                    else:    
+                                        setattr(target_acc, attribute[1:], getattr(target_acc, attribute, None))
+                                        delattr(target_acc, attribute)
+                                elif attribute[0].lower() == 'b' and len(attribute) == 1:
+                                    # identified but attr name is only 1 char long
+                                    # create a new attr with dummy name 'fixed attribute', copy the attr val
+                                    # in the new attr, and delete the wrong attr
+                                    setattr(target_acc, 'fixed attribute', getattr(target_acc, attribute, None))
+                                    delattr(target_acc, attribute)
                     
-                if "even" in acc_fails and 'zip' in acc_fails:
-                    setattr(target_acc, 'zip', '')
-                elif "even" in acc_fails and 'addr' in acc_fails:
-                    setattr(target_acc, 'address', '') 
+                    # Check if account is still corrupted
+                    acc_corrupted, acc_fails = self.is_corrupted(target_acc)
+                
+                # If out of the loop, fix is completed
+                return True
                 
             else:
                 # Account in not corrupted
@@ -159,22 +207,26 @@ class Bank(object):
             fails.append('addr')
         
         # no attribute name, id and value,
-        if 'name' not in acc_attrs or 'id' not in acc_attrs or 'value' not in acc_attrs:
-            fails.append('name')
-
+        if 'name' not in acc_attrs:
+            fails.append('no_name')
+        if 'id' not in acc_attrs:
+            fails.append('no_id')
+        if 'value' not in acc_attrs:
+            fails.append('no_value')
+            
         # name not being a string,
         if not isinstance(acc.name, str):
             fails.append('name_str')
             
         # id not being an int
         if not isinstance(acc.id, int):
-            fails.append('id')
+            fails.append('id_int')
             
         # value not being an int or a float.
         if not isinstance(acc.value, int) and not isinstance(acc.value, float):
-            fails.append('value')
+            fails.append('value_type')
         
         if (len(fails) > 0):
             return True, fails
         else:
-            return False
+            return False, []
