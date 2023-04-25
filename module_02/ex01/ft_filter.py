@@ -31,5 +31,22 @@ def ft_filter(function_to_apply, iterable):
         An iterable.
         None if the iterable can not be used by the function.
     """
-    # ... Your code here ...
+  
+    # validate arguments
+    if not function_to_apply or len(iterable) != 1:
+        raise TypeError("ft_filter() expected 2 arguments, got ",len(iterable)+1)
+    else:
+        for iter in iterable:
+            if not hasattr(iter, '__iter__'):
+                raise TypeError("{} object is not iterable".format(type(iter).__name__))
+    
+    if not callable(function_to_apply):
+        raise TypeError("First argument must be a function.")
+    
+
+    # Combine iter arguments in case there are more than one
+    iterables = zip(*iterable)
+    for iter in iterables:
+        if (function_to_apply(*iter)):
+            yield 
     
