@@ -72,7 +72,7 @@ class Bank(object):
         dest_corrupted = False
         
         # check arguments not being correct type
-        if not isinstance(origin, str) or not isinstance(dest, str) or not isinstance(amount, float):
+        if not isinstance(origin, str) or not isinstance(dest, str) or (not isinstance(amount, float) and not isinstance(amount, int)):
            return False
         
         # get origin and dest account objects
@@ -117,6 +117,7 @@ class Bank(object):
         #if not isinstance(name, str):
         #   return False
         
+        even_counter = 0
         # get name's account object
         target_acc = None
         for account in self.accounts:
@@ -141,7 +142,8 @@ class Bank(object):
                     # fix the others first
                     if len(acc_fails) == 1 and 'even' in acc_fails:
                         # create a dummy attr calledd 'other'
-                        setattr(target_acc, 'other', '')
+                        setattr(target_acc, 'other_'+str(even_counter), '')
+                        even_counter += 1
                     else:
                         # we fix the rest of issues
                         if "b" in acc_fails:

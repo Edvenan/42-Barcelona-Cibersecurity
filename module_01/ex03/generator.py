@@ -13,6 +13,18 @@ The options are:
 
 import random
 
+# using Fisher–Yates shuffle Algorithm
+def FisherYates_shuffle(words):
+    # to shuffle a list
+    for i in range(len(words)-1, 0, -1):
+        
+        # Pick a random index from 0 to i
+        j = random.randint(0, i + 1)
+    
+        # Swap word[i] with the element at random index
+        words[i], words[j] = words[j], words[i]
+        return words
+
 def generator(text: str, sep:str=" ", option:str=None):
     '''Splits the text according to sep value and yield the substrings.
     option precise if a action is performed to the substrings before it is yielded.
@@ -33,7 +45,7 @@ def generator(text: str, sep:str=" ", option:str=None):
             exit(1)
         
         elif option.lower() == 'shuffle':
-            random.shuffle(words)
+            FisherYates_shuffle(words)
         
         elif option.lower() == 'unique':
             words = list(dict.fromkeys(words))
