@@ -14,12 +14,13 @@ import sys
 sys.tracebacklimit = 0
 
 ###############################
-# FUNCTION ft_filter()
+# FUNCTION what_are_the_vars()
 ###############################
 
 def what_are_the_vars(*args, **kwargs):
     """
-    Function that returns an instance of class ObjectC.
+    Function that returns either an instance of class ObjectC with/without attributes
+    or None
     """
     # Instanciate new object
     obj = ObjectC()
@@ -31,7 +32,7 @@ def what_are_the_vars(*args, **kwargs):
     # Else, 
     # 1) for each 'args', set a new attribute with name = 'var_{# of arg}' and value = arg
     for idx, arg in enumerate(args):
-        
+        # Edge case when an arg == 42
         if arg == 42:
             arg = 12
         setattr(obj, f'var_{idx}', arg)
@@ -40,6 +41,9 @@ def what_are_the_vars(*args, **kwargs):
     for k,v in kwargs.items():
         # If key is not an existing attribute, we set it
         if not hasattr(obj, k):
+            # Edge case when an arg == 42
+            if v == 42:
+                v = 12
             try:
                 setattr(obj, k,v)
             except Exception:
@@ -50,13 +54,17 @@ def what_are_the_vars(*args, **kwargs):
     return obj
 
         
-    
+###############################
+# CLASS ObjectC()
+###############################    
 class ObjectC(object):
     def __init__(self):
             # ... Your code here ...
             pass
 
-        
+##############################
+# FUNCTION doom_printer()
+##############################        
 def doom_printer(obj):
     if obj is None:
         print("ERROR")
@@ -69,12 +77,6 @@ def doom_printer(obj):
     print("end")
 
 
-""" obj = what_are_the_vars(12, "Yes", [0, 0, 0], a=10, hello="world")
-doom_printer(obj)
-obj = what_are_the_vars(42, a=10, var_0="world")
-doom_printer(obj)
-obj = what_are_the_vars(42, "Yes", a=10, var_2="world")
-doom_printer(obj) """
 
 ##################
 # main function
