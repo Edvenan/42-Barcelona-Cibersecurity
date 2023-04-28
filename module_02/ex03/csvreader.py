@@ -32,6 +32,9 @@ separate values.
         https://www.geeksforgeeks.org/how-to-read-from-a-file-in-python/
         https://www.geeksforgeeks.org/context-manager-in-python/
 """
+import sys
+import traceback
+import csv
 
 #######################
 # CONTEXT MANAGER
@@ -46,36 +49,77 @@ class CsvReader():
         self.skip_top = skip_top
         self.skip_bottom = skip_bottom
         self.file = None
+        self.data = []
+        self.data_header = []
          
     def __enter__(self):
-        self.file = open(self.filename, self.mode)
-        return self.file
+        try:
+            self.file = open(self.filename, self.mode)
+            
+            if self.header:
+                # Get the first line of the file
+                first_line = next(self.file)
+                print(first_line)
+                # split the line in elements using 'sep' as separator
+                split_line = first_line.split(self.sep)
+                # clean each line element by removing leading/trailing spaces, quotes and '\n'
+                for element in split_line:
+                    # append cleaned elements to 'self.data_header' list
+                    self.data_header.append(element.lstrip().rstrip('\n').rstrip().strip('"'))
+            
+            data = self.file.readlines()
+            file_total_lines = len(data)
+            if self.skip_top >=file_total_lines:
+                error_value= f"'skip_top' parameter value should be lower than the file's total data lines ({file_total_lines})"
+                self.__exit__("ValueError", error_value, None)
+            elif self.skip_bottom >=file_total_lines:
+                error_value= f"'skip_bottom' parameter value should be lower than the files's total data lines ({file_total_lines})"
+                self.__exit__("ValueError", error_value, None)
+            
+            selected_lines = data[self.skip_top:(file_total_lines - self.skip_bottom)]
+            
+            # Initialize 'parsed_line' & 'parsed_lines lists'
+            parsed_line = []
+            for line in selected_lines:
+                # split each line in elements using 'sep' as separator
+                split_line = line.split(self.sep)
+                # clean each line element by removing leading/trailing spaces, quotes and '\n'
+                for element in split_line:
+                    # append cleaned elements to 'parsed_line' list
+                    parsed_line.append(element.lstrip().rstrip('\n').rstrip().strip('"'))
+                # append each parsed line to 'parsed_lines' list
+                self.data.append(parsed_line)
+                # reset 'parsed_line' list
+                parsed_line = []
+            print(self.data[0])
+            print(*(e for e in self.data[0]), sep=':')
+            print(len(self.data[0]))
+            return self
+
+        except Exception as err:
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            self.__exit__(exc_type.__name__, exc_value, exc_traceback)
 
      
     def __exit__(self, exc_type, exc_value, exc_traceback):
         
-        # Exception handling: mistmatch between number of fields and number of records
-        
-        # Exception handling: records with different length.
-        
-        self.file.close()
+        if exc_type and exc_value:
+            traceback.print_tb(exc_traceback)
+            print("{0}: {1}".format(exc_type, exc_value))
+            if self.file:
+                self.file.close()
+            exit(1)
+        else:
+            self.file.close()
+ 
  
     def getdata(self):
         """ Retrieves the data/records from skip_top to skip bottom.
         Return:
         nested list (list(list, list, ...)) representing the data.
         """
-        file_total_lines = len(self.file.readlines())
-        result = []
-        for i in range(1, file_total_lines+1):
-            if i > self.skip_top and i < (file_total_lines - self.skip_bottom):
-                result.append(self.file.readline())
-            
-            else:
-                self.file.readline()
-            
-            
-        
+        return self.data
+       
     def getheader(self):
         """ Retrieves the header from csv file.
         Returns:
@@ -83,7 +127,7 @@ class CsvReader():
         None: (when self.header is False).
         """
         if self.header:
-            return self.file.readline()
+            return self.data_header
         else:
             return None
 
@@ -91,17 +135,31 @@ class CsvReader():
 #####################
 # MAIN
 #####################
- 
-# loading a file
-#from csvreader import CsvReader
+def main():
+    with CsvReader('bad.csv',skip_top=1,skip_bottom=19, header=True) as file:
+        if file == None:
+            print("File is corrupted")
+        else:
+            data = file.getdata()
+            header = file.getheader()
+    print(file.file.closed)
+    print(data)
+    print(header)
+     
 
 if __name__ == "__main__":
+    main()
+
+""" 
+    # loading a file
+    #from csvreader import CsvReader
+
     with CsvReader('good.csv') as file:
         data = file.getdata()
         header = file.getheader()
     print(file.closed)
 
-# loading a file
+    # loading a file
     with CsvReader('bad.csv') as file:
         if file == None:
-            print("File is corrupted")
+            print("File is corrupted") """
