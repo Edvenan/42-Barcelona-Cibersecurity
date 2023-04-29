@@ -34,7 +34,7 @@ separate values.
 """
 import sys
 import traceback
-import csv
+
 
 #######################
 # CONTEXT MANAGER
@@ -43,7 +43,6 @@ import csv
 class CsvReader():
     def __init__(self, filename=None, sep=',', header=False, skip_top=0, skip_bottom=0):
         self.filename = filename
-        self.mode = 'r'
         self.sep = sep
         self.header = header
         self.skip_top = skip_top
@@ -53,39 +52,25 @@ class CsvReader():
          
     def __enter__(self):
         try:
-            self.file = open(self.filename, self.mode)
-            
-            """ if self.header:
-                # Get the first line of the file
-                first_line = next(self.file)
-                print(first_line)
-                # split the line in elements using 'sep' as separator
-                split_line = first_line.split(self.sep)
-                # clean each line element by removing leading/trailing spaces, quotes and '\n'
-                for element in split_line:
-                    # append cleaned elements to 'self.data_header' list
-                    self.data_header.append(element.lstrip().rstrip('\n').rstrip().strip('"')) """
-            
+            # open file
+            self.file = open(self.filename, 'r')
+            print("-- File opened --")
             # Store all file raw lines in 'data' var 
             data = self.file.readlines()
             # Count number of lines
             file_total_lines = len(data)
             
-            ###########
-            # Validate all inputs
-            ###########
-            
-            # Print error if input values for 'sikp_top' and 'skip_bottom' are valid
+            # raise exception if file is empty
+            if file_total_lines == 0:
+                raise ValueError(f"File '{self.filename}' is empty")
+
+            # print warning if 'sikp_top' and 'skip_bottom' values are > total file lines
             if self.skip_top >=file_total_lines:
-                error_value= f"'skip_top' parameter value should be lower than the file's total data lines ({file_total_lines})"
-                #self.__exit__("ValueError", error_value, None)
-                raise ValueError(f"'skip_top' parameter value should be lower than the file's total data lines ({file_total_lines})")
+                print(f"WARNING: In order to get some data, 'skip_top' value should be lower than the file's total data lines ({file_total_lines})")
             elif self.skip_bottom >=file_total_lines:
-                error_value= f"'skip_bottom' parameter value should be lower than the files's total data lines ({file_total_lines})"
-                #self.__exit__("ValueError", error_value, None)
-                raise ValueError(f"'skip_bottom' parameter value should be lower than the file's total data lines ({file_total_lines})")
-            
-            # Store all parsed lines in 'self.data'
+                print(f"WARNING: In order to get some data, 'skip_bottom' value should be lower than the file's total data lines ({file_total_lines})")
+                
+            # Parse and Store all file lines in 'self.data'
             # Initialize 'parsed_line' list'
             parsed_line = []
             for line in data:
@@ -95,7 +80,7 @@ class CsvReader():
                 for element in split_line:
                     # append cleaned elements to 'parsed_line' list
                     parsed_line.append(element.lstrip().rstrip('\n').rstrip().strip('"'))
-                # append each parsed line to 'seld.data' list
+                # append each parsed line to 'seld.data' list, even if empty
                 self.data.append(parsed_line)
                 # reset 'parsed_line' list
                 parsed_line = []
@@ -106,35 +91,39 @@ class CsvReader():
             else:
                 return self
 
-        except Exception as err:
-            # open file error handling
+        except Exception:
+            # obtain/print exception info & return Cntxt Mgr object
             exc_type, exc_value, exc_traceback = sys.exc_info()
-            self.__exit__(exc_type, exc_value, exc_traceback)
+            #traceback.print_tb(exc_traceback)
+            print(f"{exc_type.__name__}: {exc_value}")
+            return self
 
      
     def __exit__(self, exc_type, exc_value, exc_traceback):
-        # Close the file before printing exceptions
+        # Close the file before raising exceptions
         if self.file:
             self.file.close()
-        
-        # print exceptions if any
+            print("-- File closed --")
+        # raise exceptions occurred within the context if any
         if exc_type and exc_value:
             #traceback.print_tb(exc_traceback)
-            #print("{0}: {1}".format(exc_type.__name__, exc_value))
-            raise exc_type(exc_value)
- 
+            print("EXCEPTION RAISED WITHIN THE CONTEXT: ",exc_type.__name__,": ",exc_value)
+
  
     def getdata(self):
         """ Retrieves the data/records from skip_top to skip bottom.
         Return:
         nested list (list(list, list, ...)) representing the data.
         """
-        file_total_lines = len(self.data)
-
-        if self.header:
-            return self.data[self.skip_top+1 : (file_total_lines - self.skip_bottom)]
+        # handle case when file is not found and function is called
+        if not self.data:
+            return None
         else:
-            return self.data[self.skip_top : (file_total_lines - self.skip_bottom)]
+            file_total_lines = len(self.data)
+            if self.header:
+                return self.data[self.skip_top+1 : (file_total_lines - self.skip_bottom)]
+            else:
+                return self.data[self.skip_top : (file_total_lines - self.skip_bottom)]
         
        
     def getheader(self):
@@ -143,25 +132,31 @@ class CsvReader():
         list: representing the data (when self.header is True).
         None: (when self.header is False).
         """
-        if self.header:
-            return self.data[0]
-        else:
+        # handle case when file is not found and function is called
+        if not self.data:
             return None
+        else:
+            if self.header:
+                return self.data[0]
+            else:
+                return None
 
     def is_corrupted(self):
         
+        # initialize element list
         el_list = []
         
         # Check mistmatch between number of fields and number of records (length of all lines)
+        # keep track also of line number 'ln'
         for ln, line in enumerate(self.data):
             if ln == 0:
                 # Set len_var to the length of first line 'ln == 0' (header line)
                 len_var = len(line)
-            if len(line) != len_var or ("" in line):
-                # length of current line != to header's -> corrupted file
+            if (len(line) != len_var or ("" in line)) and (line != ['']):
+                # length of current line != to header's -> corrupted file (line ignored if empty)
                 print("The file is corrupted. Inconsistent length of records in line {}".format(ln+1))
                 return True
-            # Check records with different length
+            """ # Check records with different length
             
             for en, element in enumerate(line):
                 if self.header and ln ==1:
@@ -177,85 +172,5 @@ class CsvReader():
                         if len(element) != el_list[en]:
                             # length of current element != to first line's element -> corrupted file
                             print("The file is corrupted. Inconsistent record length in line {}, element ({})".format(ln+1, en+1))
-                            return True
+                            return True """
         return False
-
-#############
-## QUE PASA SI EL CSV SOLO TIENEN UNA LINEA!
-##############
-
-#####################
-# MAIN
-#####################
-def main():
-    
-    ###############################
-    # INVALID TEST: file not found
-    ###############################
-    try:
-        with CsvReader('mbad.csv',skip_top=1005,skip_bottom=19, header=True) as file:
-            pass
-    except Exception:
-        exc_type, exc_value, exc_traceback = sys.exc_info()
-        #traceback.print_tb(exc_traceback)
-        print("# 42_BARCELONA # {0}: {1}".format(exc_type.__name__, exc_value))
-        
-    ###############################
-    # INVALID TEST: 'skip_top'/'skip_bottom' too high
-    ###############################
-    try:
-        with CsvReader('good.csv',skip_top=1005,skip_bottom=19, header=True) as file:
-            pass
-    except Exception:
-        exc_type, exc_value, exc_traceback = sys.exc_info()
-        #traceback.print_tb(exc_traceback)
-        print("# 42_BARCELONA # {0}: {1}".format(exc_type.__name__, exc_value))
-    
-    ###############################
-    # VALID TEST: Corrupted file
-    ###############################
-    with CsvReader('bad.csv',skip_top=0,skip_bottom=0, header=True) as file:
-        if file == None:
-            print("File is corrupted")
-        else:
-            data = file.getdata()
-            header = file.getheader()
-    
-    ###############################
-    # VALID TEST: Good file
-    ###############################
-    with CsvReader('good.csv',skip_top=0,skip_bottom=0, header=False) as file:
-        if file == None:
-            print("File is corrupted")
-        else:
-            header = file.getheader()
-            data = file.getdata()
-            # print key results
-            print("Is the file closed? ", end=" ")
-            try:
-                print(file.file.closed)
-            except Exception:
-                print("The file was not created.")
-            print("")
-            print("Header: ",header)
-            print("Data:\n",data)
-    
-    
-     
-
-if __name__ == "__main__":
-    main()
-
-""" 
-    # loading a file
-    #from csvreader import CsvReader
-
-    with CsvReader('good.csv') as file:
-        data = file.getdata()
-        header = file.getheader()
-    print(file.closed)
-
-    # loading a file
-    with CsvReader('bad.csv') as file:
-        if file == None:
-            print("File is corrupted") """
