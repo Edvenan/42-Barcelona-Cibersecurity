@@ -6,8 +6,11 @@
 
 This package contains 2 modules:
 - progress_bar: 
+    
     Includes a Python function called ft_progress() that will display the progress of a for loop via a Loading bar
+    
     Examples:
+    
         # Example 1
         listy = range(1000)
         ret = 0
@@ -29,6 +32,7 @@ This package contains 2 modules:
 
 - logger:
     Includes a @log decorator that will write info about the decorated function in a 'machine.log' file.
+    
     Example:
 
         from logger import log
