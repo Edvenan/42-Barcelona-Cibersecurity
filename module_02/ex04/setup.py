@@ -9,7 +9,7 @@ with open("README.md", "r") as fh:
 # Setting up
 setup(
        # the name must match the folder name 'verysimplemodule'
-        name="my-minipack", 
+        name="my_minipack", 
         version=VERSION,
         author="Eduard vendrell",
         author_email="evendrel@student.42barcelona.com",
@@ -17,7 +17,7 @@ setup(
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
         packages=find_packages(),
-        installer="pip",
+        #packages=['my-minipack'],
         install_requires=[], # add any additional packages that 
         # needs to be installed along with your package. Eg: 'caer'
         

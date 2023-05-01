@@ -55,7 +55,7 @@ class CsvReader():
             # open file
             self.file = open(self.filename, 'r')
             print("-- File opened --")
-            # Store all file raw lines in 'data' var 
+            # Read and store all file raw lines in 'data' var 
             data = self.file.readlines()
             # Count number of lines
             file_total_lines = len(data)

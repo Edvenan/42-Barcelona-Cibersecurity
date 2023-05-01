@@ -10,8 +10,11 @@ This package contains 2 modules:
     Includes a Python function called ft_progress() that will display the progress of a for loop via a Loading bar
     
     Examples:
-    
+
         # Example 1
+        from time import sleep
+        import my_minipack.progress_bar
+
         listy = range(1000)
         ret = 0
         for elem in ft_progress(listy):
@@ -21,6 +24,7 @@ This package contains 2 modules:
         print(ret)
 
         # Example 2
+
         listy = range(3333)
         ret = 0
         for elem in ft_progress(listy):
@@ -35,7 +39,7 @@ This package contains 2 modules:
     
     Example:
 
-        from logger import log
+        import my_minipack.logger
 
         class CoffeeMachine():
             water_level = 100

@@ -1,7 +1,5 @@
 # Python function called ft_progress(lst) that will display the progress of a for loop via a Loading bar
 
-
-from time import sleep
 from datetime import datetime
 
 # Loading bar function
@@ -47,34 +45,3 @@ def ft_progress(lst):
             # When percentage = 100%, remove leading space of percentage field and Print dotted line 
             print("ETA: {:>5,.2f}s [{:,.0f}%] [{:<20}] {}/{} | elapsed time {:,.2f}s.".format(eta, percentage, progress, iterations, total_iterations, elapsed_time), end="\r")
             print("\n...", end='')
-        
-        
-
-# main function
-def main():
-
-    # Example 1
-    print("EXAMPLE 1:")
-    listy = range(1000)
-    ret = 0
-    for elem in ft_progress(listy):
-        ret += (elem + 3) % 5
-        sleep(0.01)
-    print()
-    print(ret)
-
-    # Example 2
-    print()
-    print("EXAMPLE 2:")
-    listy = range(3333)
-    ret = 0
-    for elem in ft_progress(listy):
-        ret += elem
-        sleep(0.005)
-    print()
-    print(ret)  
-  
-  
-# Executes the main function
-if __name__ == '__main__':
-    main()

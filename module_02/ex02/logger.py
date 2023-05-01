@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """ 
 In this exercise, you will learn about decorators and we are not talking about the
 decoration of your room. The @log will write info about the decorated function in a
@@ -21,8 +21,8 @@ from datetime import datetime
 #######################
 def log(func):
     # Get env var user
-    user = os.getenv("USERNAME", None)
-    #user = os.getenv("USER", None)
+    #user = os.getenv("USERNAME", None) # for windows
+    user = os.getenv("USER", None)  # for linux
 
     def inner(*args):
         # Start time
