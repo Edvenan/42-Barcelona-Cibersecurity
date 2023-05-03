@@ -1,6 +1,7 @@
 import requests
 import os
 import sys
+import re
 import argparse
 from urllib.parse import urlparse, urljoin
 from bs4 import BeautifulSoup, SoupStrainer
@@ -11,12 +12,21 @@ domain = ""
 image_inventory = {}
 link_inventory = {}
 valid_extensions = ['png', 'jpeg', 'jpg', 'bmp', 'tiff', 'gif']
-stored_files = 0
-skipped_files = 0
+downloaded_counter = 0
+repeated_counter = 0
+visited_link_counter = 0
+out_of_domain_counter = 0
+skipped_link_counter = 0
 repeated_files = {}
+out_of_domain_dict = {}
+skipped_dict = {}
 depth_counter = 0
 final_log = {}
 
+
+######################################
+# get_image_links()
+######################################
 def get_image_links(url):
     
     # get all image links from the given url
@@ -24,6 +34,7 @@ def get_image_links(url):
     global domain
     global image_inventory
     global repeated_files
+    global repeated_counter
     
     try:
         response = requests.get(url)
@@ -32,50 +43,67 @@ def get_image_links(url):
             print("RESPONSE STATUS CODE != 200:  ",response.status_code )
             return [],None
         
-        # By using parse_only argument, BeautifulSoup only loads and parses the specific subset of HTML tags,
-        # which makes parsing faster and more efficient.
-        soup = BeautifulSoup(response.content, "html.parser", parse_only=SoupStrainer('img'))
-        soup_links = BeautifulSoup(response.content, "html.parser")
-        # Loop through all the img tags in the HTML
-        for img in soup:
-            if img.has_attr('src'):
-                # Get the source URL of the image
-                src = img['src']
+        # get all html content at url
+        soup = BeautifulSoup(response.content, "html.parser")
 
-                # If the source URL is relative, make it absolute
-                if not bool(urlparse(src).netloc):
-                    src = urljoin(url, src)
-
-                # Get the file extension of the image
-                extension = src.split('.')[-1]
-
-                # If the extension is a valid image extension, add it to the dictionary
-                if extension in valid_extensions:
-                    if domain in src:
-                        if not any(src in img_lst for img_lst in image_inventory.values()):
-                            image_links.append(src)
-                        else:
-                            # repeated image
-                            if url in repeated_files.keys():
-                                repeated_files[url].append(src)
-                            else:
-                                repeated_files[url]=[src]
+        # Loop through all the img tags in the HTML and store them
+        # in 'images' list if they have 'img' attribute and have a valid extension
+        images = [img.get('src') for img in soup.find_all('img') if img.get('src') and (img.get('src').split('.')[-1] in valid_extensions)]
+        #images = [img.get('src') for img in soup.find_all('img', src=True) if (img.get('src').split('.')[-1] in valid_extensions)]
         
-        # links = soup.find_all("img")
-        # image_links = [link.get("src") for link in links]
-        print("GET_IMAGE_LINKS:\n    URL: {}\n    Image_links: {}\n".format(url,image_links))
-        return image_links, soup_links
+        # Find all background-image styles in the HTML
+        #bg_styles = soup.find_all(style=re.compile('background-image: url'))
+        bg_styles = soup.find_all(style=re.compile('background-image: url'))
+        # Extract URLs from the background-image style of each element
+        style_images = []
+        for bg in bg_styles:
+            style = bg.get('style')
+            if style:
+                match = re.search(r'url\((.*?)\)', style)
+                if match:
+                    bg_url = match.group(1)
+                    # store thebg image if it has valid extension
+                    #if any(ext in bg_url for ext in valid_extensions):
+                    if (bg_url.split('.')[-1] in valid_extensions):
+                        style_images.append(bg_url)
+        
+        all_images = images + style_images
+        
+        
+        # loop through each img to check if absolute path is required
+        for img in all_images:
+            # If the source image URL is relative, make it absolute
+            # adding url's scheme and network location
+            if not bool(urlparse(img).netloc):
+                img = urlparse(url).scheme+"://"+urlparse(url)[1]+img
+                
+            # if img link has not been found previously, store it 
+            if not any(img in img_lst for img_lst in image_inventory.values()) and  img not in image_links:
+                image_links.append(img)
+            else:
+                # repeated image
+                repeated_counter += 1
+                if url in repeated_files.keys():
+                    repeated_files[url].append(img)
+                else:
+                    repeated_files[url]=[img]
+        
+        return image_links, soup
+    
     except Exception:
         # obtain/print exception info & return Cntxt Mgr object
         exc_type, exc_value, exc_traceback = sys.exc_info()
         #traceback.print_tb(exc_traceback)
-        print("FAILED REQUEST" )
+        print("WARNING!")
         print(f"{exc_type.__name__}: {exc_value}")
         return [],None
 
-
+######################################
+# download_images()
+######################################
 def download_images(image_dict, path):
-    print("DOWNLOAD_IMAGES:\n    image_dict:\n   {}\n   Path:\n   {}".format(image_dict, path))
+    
+    global downloaded_counter
     
     # download images from the given dict and store in the specified path
     if not os.path.exists(path):
@@ -85,15 +113,23 @@ def download_images(image_dict, path):
             response = requests.get(value)
 
             file_name = urlparse(value).path.split("/")[-1]
-            print("File name: ", file_name)
             file_path = os.path.join(path, file_name)
             print("File path: ", file_path)
+            
+            count = 0
+            # Check if file already exists
+            while os.path.exists(file_path):
+                count += 1
+                # If file exists, add a number to the filename
+                file_path = f'{file_path}_{count}.{file_path.split(".")[-1]}'
+            
             with open(file_path, "wb") as f:
                 f.write(response.content)
+            downloaded_counter += 1
 
 
 ################################
-# SCRAPER 
+# SCRAPE !!!!
 ################################
 def scrape(url, depth, recursive=False, path="./data/"):
     # scrape images from the given url up to the specified depth level
@@ -101,26 +137,36 @@ def scrape(url, depth, recursive=False, path="./data/"):
     # declare global variables
     global visited_links
     global image_inventory
-    global link_invetory
+    global link_inventory
     global domain
     global depth_counter
     global final_log
+    global visited_link_counter
+    global skipped_link_counter
+    global skipped_dict
     
     # Check if link has already been visited
     if url in visited_links:
+        print(" IT HAPPENED!!! ")
         return
     else:
         # if not visited,
         # Set the domain if it's the first url to visit
         if len(visited_links) == 0:
             print("visited links set is empty. Assign url to var domain")
-            # Get the domain of the URL
+            # Get the root domain of the URL
+            #domain =  urlparse(url).netloc.split('.')[-2] + '.' + urlparse(url).netloc.split('.')[-1]
             domain = urlparse(url).netloc
+            print("DOMAIN: ", domain,"\n")
+
         # add url to visited_links set
         visited_links.add(url)
+        visited_link_counter += 1
+        link_inventory[url]=[]
     
     image_dict = {}
     link_dict = {}
+    
     if depth == 0:
         image_links, soup = get_image_links(url)
         if image_links:
@@ -128,106 +174,70 @@ def scrape(url, depth, recursive=False, path="./data/"):
             download_images(image_dict, path)
             image_inventory.update(image_dict)
 
-            
-            if len(final_log) == 0 or (abs(depth_counter - depth) not in final_log.keys()):
-                final_log[abs(depth_counter - depth)]=image_dict
-            else:
-                final_log[abs(depth_counter - depth)].update(image_dict)
-
-            
-        link_dict[url] = get_internal_links(url, soup)
-        link_inventory.update(link_dict)
-
-                
     elif depth > 0:
         image_links, soup = get_image_links(url)
         if image_links:
             image_dict[url] = image_links
             download_images(image_dict, path)
             image_inventory.update(image_dict)
-            
-            if len(final_log) == 0 or (abs(depth_counter - depth) not in final_log.keys()):
-                final_log[abs(depth_counter - depth)]=image_dict
-            else:
-                final_log[abs(depth_counter - depth)].update(image_dict)
 
-        link_dict[url] = get_internal_links(url, soup)
-        link_inventory.update(link_dict)
-        
-                
         if recursive:
+            link_dict[url] = get_internal_links(url, soup)
+            link_inventory.update(link_dict)
             for link in link_dict[url]:
                 scrape(link, depth-1, recursive, path)
 
 
-""" def get_internal_links(url):
-    # get all internal links from the given url
-
-    links = soup.find_all("a")
-    internal_links = [
-        link.get("href")
-        for link in links
-        if urlparse(link.get("href")).netloc == urlparse(url).netloc
-    ]
-    return internal_links """
-
-
-
+######################################
+# get_internal_links()
+######################################
 def get_internal_links(url, soup):
     """
     Given a url, returns all the internal links within the same domain
     """
     internal_links = []
+    out_of_domain_links = []
+    skipped_links = []
     global visited_links
     global domain
-
-    """ try:
-        response = requests.get(url)
-    except:
-        return internal_links
-
-    # Check if response is valid
-    if response.status_code != 200:
-        return internal_links
-
-    # Get page content and parse with BeautifulSoup
-    soup = BeautifulSoup(response.content, 'html.parser')
-
-    # Get all links on the page
-    links = soup.find_all('a', href=True) """
-
-
-    # Loop through all the img tags in the HTML
-    internal_links = [link.get('href') for link in soup.find_all('a') if link.get('href') and domain in link.get('href') and link.get('href') not in visited_links]
-
-    for link in internal_links:
-        if link.startswith('/'):
-            link = domain + link
-
-
-    """ # Loop through links and check if they are internal to the domain
+    global visited_link_counter
+    global out_of_domain_counter
+    global skipped_link_counter
+    global out_of_domain_dict
+    global skipped_dict
+    
+    # Loop through all the 'a' tags in the HTML 
+    # containing 'href' attribute
+    
+    links = [link.get('href') for link in soup.find_all('a') if link.get('href')]
+    #links = [link.get('href') for link in soup.find_all('a', href=True)]
     for link in links:
-        href = link['href']
-        if href.startswith('http'):
-            # Check if the link is within the same domain
-            if domain in href:
-                # Check if the link has already been scraped
-                if href in visited_links:
-                    continue
-                internal_links.append(href)
-        # If the source URL is relative, make it absolute
-        elif href.startswith('/'):
-            internal_link = domain + href
-            # Check if the link has already been scraped
-            if internal_link in visited_links:
-                continue
-            internal_links.append(internal_link) """
-    print("DOMAIN: ", domain,"\n")
-    print("GET_INTERNAL_LINKS:\n    URL: {}\n    Internal_links: {}\n".format(url,internal_links))
+            
+        # If link in href is relative, make it absolute
+        if not bool(urlparse(link).netloc):
+            link = urlparse(url).scheme+"://"+urlparse(url)[1]+link
+
+        if domain in link and link not in visited_links and link not in internal_links: 
+            internal_links.append(link)
+            #visited_link_counter += 1
+            
+        elif link in visited_links or link in internal_links:
+            skipped_links.append(link)
+            skipped_link_counter += 1
+            
+        else:
+            out_of_domain_links.append(link)
+            out_of_domain_counter += 1
+
+    out_of_domain_dict[url] = out_of_domain_links
+    skipped_dict[url] = skipped_links
+    
     return internal_links
 
 
-
+######################################
+# MAIN
+######################################
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -261,35 +271,64 @@ if __name__ == "__main__":
         f.write("------------------------------------------------------\n")
         f.write("-                  DOWNLOADED FILES                  -\n")
         f.write("------------------------------------------------------\n")
-        f.write("- DEPTH        URL      # FILES                FILES -\n")
+        f.write("-     URL            # FILES                   FILES -\n")
         f.write("------------------------------------------------------\n\n")
-        for key, value in final_log.items():
-            for u,l in value.items():
-                f.write(f"{key}: {u} : {len(l)} images : {l}\n\n")
-                stored_files += len(l)
-        print("\n\n")
-        print("------------------------------------------------------")
-        print("-        DOWNLOADED FILES: {:<3}                       -".format(stored_files))
-        print("------------------------------------------------------")
-        f.write("\n")
+        for key, value in image_inventory.items():
+            f.write(f"\n{key}: {len(value)} images :\n")
+            for i in value:
+                f.write(f"        {i}\n")
+
+        f.write("\n------------------------------------------------------\n")
+        f.write("-              REPEATED (Skipped) FILES              -\n")
         f.write("------------------------------------------------------\n")
-        f.write("-           REPEATED (SKIPPED) FILES                 -\n")
-        f.write("------------------------------------------------------\n")
-        f.write("- URL                  # FILES                 FILES -\n")
+        f.write("-     URL            # FILES                   FILES -\n")
         f.write("------------------------------------------------------\n\n")
-        for key, value in final_log.items():
-            for u,l in value.items():
-                f.write(f"{key}: {u} : {len(l)} images : {l}\n\n")
-                skipped_files += len(l)
+        for key, value in repeated_files.items():
+            f.write(f"\n{key}: {len(value)} repeated images :\n")
+            for i in value:
+                f.write(f"        {i}\n")
+ 
+        f.write("\n------------------------------------------------------\n")
+        f.write("-                  VISITED LINKS                     -\n")
+        f.write("------------------------------------------------------\n")
+        f.write("- URL                  # LINKS                LINKS  -\n")
+        f.write("------------------------------------------------------\n\n")
+        for key, value in link_inventory.items():
+            f.write(f"\n{key}: {len(value)} links :\n")
+            for i in value:
+                f.write(f"        {i}\n")
+ 
+        f.write("\n------------------------------------------------------\n")
+        f.write("-                REPEATED (Skipped) LINKS            -\n")
+        f.write("------------------------------------------------------\n")
+        f.write("- URL                  # LINKS                LINKS  -\n")
+        f.write("------------------------------------------------------\n\n")
+        for key, value in skipped_dict.items():
+            f.write(f"\n{key}: {len(value)} skipped links :\n")
+            for i in value:
+                f.write(f"        {i}\n")
+                
+        f.write("\n------------------------------------------------------\n")
+        f.write("-               OUT OF DOMAIN LINKS                  -\n")
+        f.write("------------------------------------------------------\n")
+        f.write("- URL                  # LINKS                LINKS  -\n")
+        f.write("------------------------------------------------------\n\n")
+        for key, value in out_of_domain_dict.items():
+            f.write(f"\n{key}: {len(value)} out of domain links :\n")
+            for i in value:
+                f.write(f"        {i}\n")
+ 
+ 
         print("\n")
         print("------------------------------------------------------")
-        print("-        REPEATED (SKIPPED) FILES: {:<3}               -".format(skipped_files))
+        print("-        DOWNLOADED FILES: {:<3}                       -".format(downloaded_counter))
+        print("-        REPEATED (Skipped) FILES: {:<3}               -".format(repeated_counter))
         print("------------------------------------------------------")
-        print("\n\n")
+        print("-        VISITED LINKS: {:<3}                          -".format(visited_link_counter))
+        print("-        REPEATED (Skipped) LINKS: {:<3}               -".format(skipped_link_counter))
+        print("-        OUT OF DOMAIN LINKS: {:<3}                    -".format(out_of_domain_counter))
+        print("------------------------------------------------------")
+        print("\n")
 
-        for k,v in link_inventory.items():
-            print(k)
-            for i in v:
-                print("    i")
-
+       
 # https://www.42barcelona.com/es , level 5, 74 imatges
