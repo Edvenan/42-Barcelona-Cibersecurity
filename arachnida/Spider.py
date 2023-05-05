@@ -4,12 +4,11 @@ import sys
 import re
 import argparse
 from urllib.parse import urlparse, urljoin
-from bs4 import BeautifulSoup, SoupStrainer
+from bs4 import BeautifulSoup
 import validators
 import traceback
 
 visited_links = set()
-domain = ""
 image_inventory = {}
 link_inventory = {}
 valid_extensions = ['png', 'jpeg', 'jpg', 'bmp', 'tiff', 'gif']
@@ -24,7 +23,7 @@ corrupt_counter = 0
 out_of_domain_dict = {}
 skipped_dict = {}
 depth_counter = 0
-final_log = {}
+
 
 ######################################
 # get_image_links()
@@ -33,7 +32,7 @@ def get_image_links(url):
     
     # get all image links from the given url
     image_links = []
-    global domain
+
     global image_inventory
     global repeated_files
     global repeated_counter
@@ -42,8 +41,8 @@ def get_image_links(url):
         response = requests.get(url)
         # Check if response is valid
         if response.status_code >= 300:
-            print("RESPONSE STATUS CODE != 200:  ",response.status_code )
-            return [],None
+            print("RESPONSE STATUS CODE >= 300: ",response.status_code )
+            return image_links, None
 
         # get all html content at url
         soup = BeautifulSoup(response.content, "html.parser",from_encoding=response.encoding)
@@ -114,12 +113,16 @@ def get_image_links(url):
         return image_links, soup
     
     except Exception:
+        sys.tracebacklimit = 0
+        raise ConnectionError("Connection error. Please check the url provided.")
+    
+    """ except Exception:
         # obtain/print exception info & return Cntxt Mgr object
         exc_type, exc_value, exc_traceback = sys.exc_info()
         traceback.print_tb(exc_traceback)
         print("WARNING!")
         print(f"{exc_type.__name__}: {exc_value}")
-        return [],None
+        return image_links, soup """
 
 ######################################
 # download_images()
@@ -178,13 +181,13 @@ def spider(url, depth, recursive=False, path="./data/"):
     global link_inventory
     global domain
     global depth_counter
-    global final_log
     global visited_link_counter
     global skipped_link_counter
     global skipped_dict
  
-    
-
+    if not validators.url(url):
+        sys.tracebacklimit = 0
+        raise TypeError("The provided url is not valid.")
     
     # Check if link has already been visited
     if url in visited_links:
@@ -195,7 +198,6 @@ def spider(url, depth, recursive=False, path="./data/"):
         # if not visited,
         # Set the domain if it's the first url to visit
         if len(visited_links) == 0:
-            print("visited links set is empty. Assign url to var domain")
             # Get the root domain of the URL
             #domain =  urlparse(url).netloc.split('.')[-2] + '.' + urlparse(url).netloc.split('.')[-1]
             domain = urlparse(url).netloc
@@ -245,8 +247,7 @@ def get_internal_links(url, soup):
     internal_links = []
     out_of_domain_links = []
     skipped_links = []
-    global visited_links
-    global domain
+
     global visited_link_counter
     global out_of_domain_counter
     global skipped_link_counter
@@ -255,38 +256,39 @@ def get_internal_links(url, soup):
     
     # Loop through all the 'a' tags in the HTML 
     # containing 'href' attribute
-    
-    links = [link.get('href') for link in soup.find_all('a') if link.get('href')]
-    #links = [link.get('href') for link in soup.find_all('a', href=True)]
-    for link in links:
-            
-        # If link in href is relative, make it absolute
-        if not bool(urlparse(link).netloc):
-            #link = urlparse(url).scheme+"://"+urlparse(url)[1]+link
-            link = urlparse(url).scheme+"://"+urlparse(url).netloc+link
-
-        if not validators.url(link):
-            continue
+    if soup != None:
         
-        if domain in link and link not in visited_links and link not in internal_links: 
-            internal_links.append(link)
+        links = [link.get('href') for link in soup.find_all('a') if link.get('href')]
+        #links = [link.get('href') for link in soup.find_all('a', href=True)]
+        for link in links:
+                
+            # If link in href is relative, make it absolute
+            if not bool(urlparse(link).netloc):
+                #link = urlparse(url).scheme+"://"+urlparse(url)[1]+link
+                link = urlparse(url).scheme+"://"+urlparse(url).netloc+link
 
+            if not validators.url(link):
+                continue
             
-        elif link in visited_links or link in internal_links:
-            skipped_links.append(link)
-            skipped_link_counter += 1
-            
-        else:
-            out_of_domain_links.append(link)
-            out_of_domain_counter += 1
+            if domain in link and link not in visited_links and link not in internal_links: 
+                internal_links.append(link)
 
-    out_of_domain_dict[url] = out_of_domain_links
-    skipped_dict[url] = skipped_links
+                
+            elif link in visited_links or link in internal_links:
+                skipped_links.append(link)
+                skipped_link_counter += 1
+                
+            else:
+                out_of_domain_links.append(link)
+                out_of_domain_counter += 1
+
+        out_of_domain_dict[url] = out_of_domain_links
+        skipped_dict[url] = skipped_links
     
     return internal_links
 
 ######################################
-# screen print outs()
+# logs and screen print outs
 ######################################
 def log_and_print_out():
     """
@@ -415,8 +417,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     depth_counter = args.depth_level
-    
-    print(args)
+
     
     spider(args.url, args.depth_level, args.recursive, args.path)
     log_and_print_out()
