@@ -11,7 +11,7 @@ import traceback
 visited_links = set()
 image_inventory = {}
 link_inventory = {}
-valid_extensions = ['png', 'jpeg', 'jpg', 'bmp', 'tiff', 'gif']
+valid_extensions = ['png', 'jpeg', 'jpg', 'bmp', 'tiff', 'gif', 'doc', 'docx','pdf']
 downloaded_counter = 0
 repeated_counter = 0
 visited_link_counter = 0
@@ -60,6 +60,10 @@ def get_image_links(url):
     
         srcsets = [srcset.get('srcset') for srcset in soup.find_all(attrs={'srcset': True}) if (srcset.get('srcset').split('.')[-1].lower() in valid_extensions)]
     
+        docs1 = [doc.get('href') for doc in soup.find_all(attrs={'href': True}) if (doc.get('href').split('.')[-1].lower() in valid_extensions)]
+        docs2 = [doc.get('data') for doc in soup.find_all(attrs={'data': True}) if (doc.get('data').split('.')[-1].lower() in valid_extensions)]
+    
+    
         cursors = soup.find_all(cursor=re.compile(': url'))
         cursor_images = []
         for bg in cursors:
@@ -89,7 +93,7 @@ def get_image_links(url):
                     if (bg_url.split('.')[-1].lower() in valid_extensions):
                         style_images.append(bg_url)
         
-        all_images = images + metas + srcsets + cursor_images + style_images
+        all_images = images + metas + srcsets + docs1 + docs2 + cursor_images + style_images
         
         
         # loop through each img to check if absolute path is required
@@ -114,8 +118,9 @@ def get_image_links(url):
     
     except Exception:
         sys.tracebacklimit = 0
-        raise ConnectionError("Connection error. Please check the url provided.")
-    
+        #raise ConnectionError("Connection error. Please check the url provided.")
+        print("ConnectionError: Connection error. Please check the url provided.")
+        exit(2)
     """ except Exception:
         # obtain/print exception info & return Cntxt Mgr object
         exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -423,5 +428,5 @@ if __name__ == "__main__":
     log_and_print_out()
     
 
-       
+# ython3 spider.py -r -l 2 'https://file-examples.com/index.php/sample-documents-download/sample-doc-download/'
 # https://www.42barcelona.com/es , level 5, 74 imatges
