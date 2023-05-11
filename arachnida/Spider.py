@@ -1,3 +1,25 @@
+#!/home/edvenan/anaconda3/envs/42/bin/ python
+""" 
+    El programa spider permitirá extraer todas las imágenes de un sitio web, de manera
+    recursiva, proporcionando una url como parámetro. Gestionarás las siguientes opciones
+    del programa:
+    
+        ./spider [-rlpS] URL
+    
+    •Opción -r : descarga de forma recursiva las imágenes en una URL recibida como
+                parámetro.
+    •Opción -r -l [N] : indica el nivel profundidad máximo de la descarga recursiva.
+        En caso de no indicarse, será 5.
+    •Opción -p [PATH] : indica la ruta donde se guardarán los archivos descargados.
+        En caso de no indicarse, se utilizará ./data/.
+        El programa descargará por defecto las siguientes extensiones:
+            ◦.jpg/jpeg
+            ◦.png
+            ◦.gif
+            ◦.bmp
+
+"""
+
 import requests
 import os
 import sys
@@ -7,6 +29,7 @@ from urllib.parse import urlparse, urljoin
 from bs4 import BeautifulSoup
 import validators
 import traceback
+import random
 
 visited_links = set()
 image_inventory = {}
@@ -32,17 +55,30 @@ def get_image_links(url):
     
     # get all image links from the given url
     image_links = []
-
+    soup = None
+    
+    user_agents = [
+    "Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0",
+    "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0",
+    "Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0"
+    ]
+    random_user_agent = random.choice(user_agents)
+    global headers
+    
+    headers = {
+        'User-Agent': random_user_agent
+    }
+    
     global image_inventory
     global repeated_files
     global repeated_counter
     
     try:
-        response = requests.get(url)
+        response = requests.get(url, headers=headers)
         # Check if response is valid
         if response.status_code >= 300:
-            print("RESPONSE STATUS CODE >= 300: ",response.status_code )
-            return image_links, None
+            print(f"ClientError: Status Code {response.status_code}. Please check the url provided: {url}")
+            return image_links, soup
 
         # get all html content at url
         soup = BeautifulSoup(response.content, "html.parser",from_encoding=response.encoding)
@@ -100,6 +136,7 @@ def get_image_links(url):
         for img in all_images:
             # If the source image URL is relative, make it absolute
             # adding url's scheme and network location
+            img = img.strip()
             if not bool(urlparse(img).netloc):
                 img = urlparse(url).scheme+"://"+urlparse(url)[1]+img
                 
@@ -117,17 +154,18 @@ def get_image_links(url):
         return image_links, soup
     
     except Exception:
-        sys.tracebacklimit = 0
+        #sys.tracebacklimit = 0
         #raise ConnectionError("Connection error. Please check the url provided.")
-        print("ConnectionError: Connection error. Please check the url provided.")
-        exit(2)
-    """ except Exception:
+        print(f"ConnectionError: Connection error! Please check the url provided: {url}")
+        #return image_links, soup
+        #exit(2)
+        #except Exception:
         # obtain/print exception info & return Cntxt Mgr object
         exc_type, exc_value, exc_traceback = sys.exc_info()
         traceback.print_tb(exc_traceback)
         print("WARNING!")
         print(f"{exc_type.__name__}: {exc_value}")
-        return image_links, soup """
+        return image_links, soup
 
 ######################################
 # download_images()
@@ -143,14 +181,41 @@ def download_images(image_dict, path, url):
         os.makedirs(path)
     for key, values in image_dict.items():
         for value in values:
-            response = requests.get(value)
             
-            file_name = "{}_[{:<5}]_{}".format(str(downloaded_counter+1).zfill(4), urlparse(value).scheme ,urlparse(value).path.split("/")[-1])
-            ##########################################
-            file_path = os.path.join(path, file_name)
- 
-            if response.status_code >= 300:
-                print("Download FAILED! (Status code: {}) ({})".format(response.status_code, value))
+            try:
+                response = requests.get(value, headers=headers)
+                
+                file_name = "{}_[{:<5}]_{}".format(str(downloaded_counter+1).zfill(4), urlparse(value).scheme ,urlparse(value).path.split("/")[-1])
+                ##########################################
+                file_path = os.path.join(path, file_name)
+    
+                if response.status_code >= 300:
+                    print("Download FAILED! (Status code: {}) ({})".format(response.status_code, value))
+                    # remove this image link from image_dict
+                    image_dict[key].remove(value)
+                    corrupt_counter += 1
+                    if url in corrupt_files:
+                        corrupt_files[url].append(value)
+                    else:
+                        corrupt_files[url] = [value]
+                else:
+                    
+                
+                    """ 
+                    count = 0
+                    # Check if file already exists
+                    while os.path.exists(file_path):
+                        count += 1
+                        # If file exists, add a number to the filename
+                        file_path = f'{file_path}_{count}.{file_path.split(".")[-1]}'
+                    """
+                    with open(file_path, "wb") as f:
+                        f.write(response.content)
+                    downloaded_counter += 1
+                    print("Downloaded file {:>4}: {}".format(downloaded_counter,file_path))
+
+            except Exception:
+                print("Download FAILED! (Connection Error) ({})".format(value))
                 # remove this image link from image_dict
                 image_dict[key].remove(value)
                 corrupt_counter += 1
@@ -158,26 +223,13 @@ def download_images(image_dict, path, url):
                     corrupt_files[url].append(value)
                 else:
                     corrupt_files[url] = [value]
-            else:
                 
-            
-                """ 
-                count = 0
-                # Check if file already exists
-                while os.path.exists(file_path):
-                    count += 1
-                    # If file exists, add a number to the filename
-                    file_path = f'{file_path}_{count}.{file_path.split(".")[-1]}'
-                """
-                with open(file_path, "wb") as f:
-                    f.write(response.content)
-                downloaded_counter += 1
-                print("Downloaded file {:>4}: {}".format(downloaded_counter,file_path))
-
+                
+                
 ################################
 # SPIDER !!!!
 ################################
-def spider(url, depth, recursive=False, path="./data/"):
+def spider(url, depth=5, recursive=False, path="./data/"):
     # scrape images from the given url up to the specified depth level
     
     # declare global variables
@@ -218,7 +270,7 @@ def spider(url, depth, recursive=False, path="./data/"):
         
         if depth == 0:
             image_links, soup = get_image_links(url)
-            if image_links:
+            if image_links and soup:
                 image_dict[url] = image_links
                 download_images(image_dict, path, url)
                 image_inventory.update(image_dict)
@@ -227,7 +279,7 @@ def spider(url, depth, recursive=False, path="./data/"):
 
         elif depth > 0:
             image_links, soup = get_image_links(url)
-            if image_links:
+            if image_links and soup:
                 image_dict[url] = image_links
                 download_images(image_dict, path, url)
                 image_inventory.update(image_dict)
@@ -275,17 +327,19 @@ def get_internal_links(url, soup):
             if not validators.url(link):
                 continue
             
-            if domain in link and link not in visited_links and link not in internal_links: 
-                internal_links.append(link)
-
-                
+            elif link.split('.')[-1].lower() in valid_extensions:
+                continue
+            
+            elif domain not in link:
+                out_of_domain_links.append(link)
+                out_of_domain_counter += 1
+            
             elif link in visited_links or link in internal_links:
                 skipped_links.append(link)
                 skipped_link_counter += 1
-                
+                         
             else:
-                out_of_domain_links.append(link)
-                out_of_domain_counter += 1
+                internal_links.append(link)
 
         out_of_domain_dict[url] = out_of_domain_links
         skipped_dict[url] = skipped_links
@@ -408,7 +462,7 @@ if __name__ == "__main__":
         "--depth_level",
         help="depth level for recursive search",
         type=int,
-        default=5,
+        default = 5,
     )
     parser.add_argument(
         "-p",
@@ -417,12 +471,10 @@ if __name__ == "__main__":
         default="./data/",
     )
     parser.add_argument(
-        "url", help="the starting url")
+        "url", type=str, help="the starting url")
     
     args = parser.parse_args()
-    
-    depth_counter = args.depth_level
-
+       
     
     spider(args.url, args.depth_level, args.recursive, args.path)
     log_and_print_out()
