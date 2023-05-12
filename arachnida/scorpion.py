@@ -10,6 +10,12 @@ from datetime import datetime
 
 import exif
 import pikepdf
+from typing import Dict
+import docx
+from docx.document import Document
+from docx.opc.coreprops import CoreProperties
+# python -m pip install python-docx
+
 import xml
 import zipfile
 from functions import *
@@ -43,14 +49,14 @@ class App:
 
             # Add a Scrollbar(horizontal)
             self.bar=Scrollbar(self.ventana, orient='horizontal', command=self.display.xview)
-            self.bar.grid(row=1, column=0, columnspan=7,sticky="swe")
+            self.bar.grid(row=2, column=0, columnspan=7,sticky="swe")
             self.display.config(xscrollcommand=self.bar.set)
             
             self.btn_search = Button(self.ventana,text="SEARCH FILE",width=30, bg="orange",command=self.open_file)
-            self.btn_search.grid(row=2, column=0, sticky="we", columnspan=3)
+            self.btn_search.grid(row=3, column=0, sticky="we", columnspan=3)
 
             self.btn_quit = Button(self.ventana, text="QUIT",width=30, bg="red", command=self.quit)
-            self.btn_quit.grid(row=2, column=4, sticky="we", columnspan=3)
+            self.btn_quit.grid(row=3, column=4, sticky="we", columnspan=3)
 
             # Variables & widgets declaration
             self.tags = []
@@ -82,8 +88,7 @@ class App:
     def open_file(self):
         
         # ask for file to process
-        self.file = filedialog.askopenfilename(initialdir="./data/",title="SELECT FILE",
-                                          filetypes=(("Image files",".jpg .jpeg .png .bmp .gif"),("Document files",".docx .pdf .doc")))
+        self.file = filedialog.askopenfilename(initialdir="./data/",title="SELECT FILE", filetypes=([("",".jpg .jpeg .png .bmp .gif .docx .pdf")]))
         if self.file != "":
             
              # remove any widget relative to file editing
@@ -116,29 +121,32 @@ class App:
     ###############################################
     def extract_and_print_on_screen(self):
             self.extract_data()
+            
             # display file info
-            print('\n    '+'-'*26+'FILE INFO'+'-'*26+"\n")
-            print(f"    {'File_Name':26}: {self.file}"+"\n")
+            print('\n    '+'-'*26+'FILE INFO'+'-'*26)
+            print(f"    {'File_Name':26}: {self.file}")
             for tag, data in self.data.items():
                 if isinstance(tag, str) and tag != "choose metadata" :
                     if tag[:5] == 'File_':
-                        print(f'    {tag:26}: {data}'+"\n")
+                        print(f'    {tag:26}: {data}')
+            
             # display EXIF metadata if any
-            print('    '+'-'*26+'EXIF INFO'+'-'*26+"\n")
+            print('    '+'-'*26+'EXIF INFO'+'-'*26)
             if len(self.data) > 4:
                 for tag, data in self.data.items():
                     if isinstance(tag, int) or (tag != "choose metadata" and tag[:5] != 'File_'):
                         try:
-                            print(f'    {str(tag):26}: {data}'+"\n")
+                            print(f'    {str(tag):26}: {data}')
                         except:
                             data = re.sub('[^a-zA-Z0-9 \n\.]', '', data)
                             self.data[tag] = data
-                            print(f'    {str(tag):26}: {data}'+"\n")
+                            print(f'    {str(tag):26}: {data}')
             else:
                 print("    No metadata\n")
+            
             # if file has pdf extension, process it
             if self.file.split(".")[-1] == 'pdf':
-                print('    '+'-'*26+'PDF INFO'+'-'*26+"\n")
+                print('    '+'-'*26+'PDF INFO'+'-'*26)
                 # read the pdf file
                 pdf = pikepdf.Pdf.open(self.file)
                 docinfo = pdf.docinfo
@@ -146,17 +154,20 @@ class App:
                     if str(value).startswith("D:"):
                         # pdf datetime format, convert to python datetime
                         value = transform_date(str(pdf.docinfo["/CreationDate"]))
-                    print(f'    {key[1:]:26}: {value}'+"\n")
+                    print(f'    {key[1:]:26}: {value}')
             # print final line
             print('    '+'-'*61)
     
 
+
+
     ###############
     # EXTRACT DATA
     ###############
-
     def extract_data(self):
 
+        encod = ['ascii', 'latin_1', 'iso8859_2', 'iso8859_3', 'iso8859_4', 'iso8859_5', 'iso8859_6', 'iso8859_7', 'iso8859_8', 'iso8859_9', 'iso8859_10', 'iso8859_11', 'iso8859_13', 'iso8859_14', 'iso8859_15', 'iso8859_16', 'johab', 'koi8_r', 'koi8_t', 'koi8_u', 'kz1048', 'mac_cyrillic', 'mac_greek', 'mac_iceland', 'mac_latin2', 'mac_roman', 'mac_turkish', 'ptcp154', 'shift_jis', 'shift_jis_2004', 'shift_jisx0213', 'utf_7', 'utf_8', 'utf_8_sig']
+        
         # extract basic file data
         self.data = {}
         self.data['choose metadata'] = "choose metadata from list"
@@ -168,33 +179,29 @@ class App:
         # extract exif metadata
         
         self.tags=[]
-        #self.display.delete('1.0',END)
+
         try:
             self.image = Image.open(self.file)
             self.exifdata = self.image.getexif()
             
             if self.exifdata != {}:
-                #self.display.insert(END,"    "+"-"*26+"METADATA INFO"+"-"*26+"\n")
+                
                 for tag_id,data in self.exifdata.items():
+                    
                     tag = str(ExifTags.TAGS.get(tag_id, tag_id))
                     
-                    # if tag = 59932 -> padding
-                    #if tag == 59932:
-                    #    tag = "59932 (padding)"
-                    
                     if isinstance(data, bytes):
-                        #self.data[tag] = data.decode('utf-8')
-                        self.data[tag] = str(data)
+                        self.data[tag] = data.decode(encoding="utf_8", errors="replace")
                     else:
                         self.data[tag] = data
-                    
-                    self.tags.append(tag)
-                        
+                    self.tags.append(tag)            
+                
+    
                 for ifd_id in ExifTags.IFD:
 
                     try:
                         ifd = self.exifdata.get_ifd(ifd_id)
-
+                        
                         if ifd_id == ExifTags.IFD.GPSInfo:
                             resolve = ExifTags.GPSTAGS
                         else:
@@ -203,15 +210,19 @@ class App:
                         for k, data in ifd.items():
                             tag = str(resolve.get(k, k))
                             
-                            self.tags.append(tag)
+                            if tag in self.data.keys():
+                                break
+                            
                             if isinstance(data, bytes):
-                                #self.data[tag] = data.decode('utf-8')
-                                self.data[tag] = str(data)
+                                self.data[tag] = data.decode(encoding="utf_8", errors="replace")
                             else:
                                 self.data[tag] = data
+                            self.tags.append(tag)
                             
                     except KeyError:
                         pass
+
+
 
                     """
                     try:
@@ -275,6 +286,25 @@ class App:
                 self.display.insert(END,f'    {key[1:]:26}: {value}'+"\n")
         else:
             return
+        
+    def display_doc_info(self):
+        
+        # if file has doc, docx extension, process it
+        ext = self.file.split(".")[-1]
+        if  ext == 'docx':
+            self.display.insert(END,'    '+'-'*23+' DOCX INFO '+'-'*23+"\n")
+            # read the doc/docx file
+            filename = os.path.basename(self.file)
+            doc:Document = docx.Document(self.file)
+            props:CoreProperties = doc.core_properties
+            metadata={}
+            #metadata['Filepath'] = self.file
+            #metadata['Filename'] = filename
+            metadata.update({str(p):getattr(props, p) for p in dir(props) if not str(p).startswith('_')})
+            for key, value in metadata.items():
+                self.display.insert(END,f'    {key.capitalize():26}: {value}'+"\n")
+        else:
+            return
  
     def display_data(self):
         
@@ -287,8 +317,11 @@ class App:
         # display file info
         self.display_file_info()
         
-        # display file info
+        # display pdf file info
         self.display_pdf_info()
+        
+        # display doc/docx file info
+        self.display_doc_info()
         
         # display EXIF metadata
         self.display_exif_info()
@@ -300,7 +333,7 @@ class App:
         if len(self.data) > 4:
                 # show Edit Metadata button
                 self.btn_edit_meta = Button(self.ventana, text="EDIT EXIF", bg="yellow", command=self.edit_meta)
-                self.btn_edit_meta.grid(row=2, column=3, sticky="we", columnspan=1)
+                self.btn_edit_meta.grid(row=3, column=3, sticky="we", columnspan=1)
         
 
     ###############
@@ -339,7 +372,7 @@ class App:
                             break
                     #Save button
                     self.btn_save = Button(self.ventana, text= "Save changes to file", command= self.save_file)
-                    self.btn_save.grid(pady=10, row=4, column=5, sticky="w", columnspan=2)
+                    self.btn_save.grid(pady=10, row=5, column=5, sticky="w", columnspan=2)
                             
                     
                   
@@ -396,24 +429,24 @@ class App:
             # Lists all possible tags
             #self.dropdown = OptionMenu(self.ventana, self.dropdown_var, *sorted(ExifTags.TAGS.values()))
             
-            self.dropdown.grid(padx=10, pady=10,row=3, column=0, sticky='we', rowspan=2)
+            self.dropdown.grid(padx=10, pady=10,row=4, column=0, sticky='we', rowspan=2)
 
             self.radio_var.set("modify metadata")
 
             self.radio_modify = Radiobutton(self.ventana, text='Modify',  variable=self.radio_var, value='modify')
-            self.radio_modify.grid(row=3, column=2, sticky="w")
+            self.radio_modify.grid(row=4, column=2, sticky="w")
             
             self.radio_delete = Radiobutton(self.ventana, text='Delete',  variable=self.radio_var, value='delete')
-            self.radio_delete.grid(row=4, column=2, sticky="w")
+            self.radio_delete.grid(row=5, column=2, sticky="w")
                 
             self.edit_label = Label(self.ventana, text="New Value:")
-            self.edit_label.grid(row=3, column=3, sticky="e")
+            self.edit_label.grid(row=4, column=3, sticky="e")
             
             self.edit_entry = Entry(self.ventana,textvariable=self.valores,  width= 40)
-            self.edit_entry.grid(row=3, column=5, sticky="w", columnspan=2)
+            self.edit_entry.grid(row=4, column=5, sticky="w", columnspan=2)
             
             self.ok_btn = Button(self.ventana,text="SUBMIT MODIFY or DELETE",command=self.submit)
-            self.ok_btn.grid(padx=10, pady=10, row=5, column=0, sticky="we", columnspan=7)
+            self.ok_btn.grid(padx=10, pady=10, row=6, column=0, sticky="we", columnspan=7)
 
 
     ###############
