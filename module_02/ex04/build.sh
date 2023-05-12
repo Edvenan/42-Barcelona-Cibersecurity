@@ -1,15 +1,15 @@
-#!/bin/bash
+
 
 # bash script that builds our package
 
 # Install pip, setuptools, and wheel
-pip install --upgrade pip setuptools wheel
+python -m pip install --upgrade pip setuptools wheel
 
 # Build the distribution files
-python3 setup.py sdist bdist_wheel
+python setup.py sdist bdist_wheel
 
 # Install the package from the local distribution files
-pip install ./dist/my_minipack-*.tar.gz
+python -m pip install ./dist/my_minipack-*.tar.gz
 
 
 
