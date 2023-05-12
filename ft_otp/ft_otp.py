@@ -57,6 +57,8 @@
 
 # https://www.youtube.com/watch?v=VOYxF12K1vE
 # https://totp.app/
+# https://datatracker.ietf.org/doc/html/rfc6238
+
 
 '''
       * This method uses the JCE to provide the crypto algorithm.
