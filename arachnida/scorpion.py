@@ -8,17 +8,19 @@ import sys
 import humanize
 from datetime import datetime
 
-import exif
 import pikepdf
 from typing import Dict
 import docx
 from docx.document import Document
 from docx.opc.coreprops import CoreProperties
 # python -m pip install python-docx
+#  python .\scorpion.py .\data\foto1.jpg .\data\Arachnida.pdf .\data\Documento.docx
+
+from functions import *
 
 import xml
+import exif
 import zipfile
-from functions import *
 
 class App:
     
@@ -130,22 +132,29 @@ class App:
                     if tag[:5] == 'File_':
                         print(f'    {tag:26}: {data}')
             
-            # display EXIF metadata if any
-            print('    '+'-'*26+'EXIF INFO'+'-'*26)
-            if len(self.data) > 4:
-                for tag, data in self.data.items():
-                    if isinstance(tag, int) or (tag != "choose metadata" and tag[:5] != 'File_'):
-                        try:
-                            print(f'    {str(tag):26}: {data}')
-                        except:
-                            data = re.sub('[^a-zA-Z0-9 \n\.]', '', data)
-                            self.data[tag] = data
-                            print(f'    {str(tag):26}: {data}')
-            else:
-                print("    No metadata\n")
+            # get file extension
+            ext = self.file.split(".")[-1]
+            
+            # if file has valid image extension, process it
+            if ext in ['jpg','jpeg','png','bmp','gif']:
+                # display EXIF metadata if any
+                print('    '+'-'*26+'EXIF INFO'+'-'*26)
+                if len(self.data) > 4:
+                    for tag, data in self.data.items():
+                        if isinstance(tag, int) or (tag != "choose metadata" and tag[:5] != 'File_'):
+                            try:
+                                print(f'    {str(tag):26}: {data}')
+                            except:
+                                data = re.sub('[^a-zA-Z0-9 \n\.]', '', data)
+                                self.data[tag] = data
+                                print(f'    {str(tag):26}: {data}')
+                    # print final line
+                    print('    '+'-'*61)
+                else:
+                    print("    No metadata\n")
             
             # if file has pdf extension, process it
-            if self.file.split(".")[-1] == 'pdf':
+            elif ext == 'pdf':
                 print('    '+'-'*26+'PDF INFO'+'-'*26)
                 # read the pdf file
                 pdf = pikepdf.Pdf.open(self.file)
@@ -155,11 +164,26 @@ class App:
                         # pdf datetime format, convert to python datetime
                         value = transform_date(str(pdf.docinfo["/CreationDate"]))
                     print(f'    {key[1:]:26}: {value}')
-            # print final line
-            print('    '+'-'*61)
-    
-
-
+                # print final line
+                print('    '+'-'*61)    
+            # if file has doc, docx extension, process it
+            elif  ext == 'docx':
+                print('    '+'-'*23+' DOCX INFO '+'-'*23)
+                # read the doc/docx file
+                filename = os.path.basename(self.file)
+                doc:Document = docx.Document(self.file)
+                props:CoreProperties = doc.core_properties
+                metadata={}
+                #metadata['Filepath'] = self.file
+                #metadata['Filename'] = filename
+                metadata.update({str(p):getattr(props, p) for p in dir(props) if not str(p).startswith('_')})
+                for key, value in metadata.items():
+                    print(f'    {key.capitalize():26}: {value}')
+                # print final line
+                print('    '+'-'*61)
+            else:
+                print(f"    Wrong file extension: .{ext}. Only valid extensions are .jpg, .jpeg, .png, .bmp, .gif, .docx, .pdf")
+                print('    '+'-'*61)
 
     ###############
     # EXTRACT DATA
