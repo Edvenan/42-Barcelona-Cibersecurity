@@ -270,7 +270,6 @@ class App:
     ###############
     # DISPLAY  DATA
     ###############
-    
     def display_file_info(self):
          # display file info
         self.display.insert(END,'    '+'-'*26+'FILE INFO'+'-'*26+"\n")

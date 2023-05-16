@@ -1,4 +1,4 @@
-#!/home/edvenan/anaconda3/envs/42/bin/ python
+#!/usr/bin/env python
 
 import PySimpleGUI as sg
 import os.path
@@ -115,7 +115,7 @@ def do_the_magic(key):
 
 while True:
     event, values = window.read()
-    print("Event= ",event," Values= ", values)
+    #print("Event= ",event," Values= ", values)
     
     if event == "Exit" or event == sg.WIN_CLOSED:
         break
