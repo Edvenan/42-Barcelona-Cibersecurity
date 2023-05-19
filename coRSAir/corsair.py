@@ -57,7 +57,7 @@
 ###  Modulo = remainder   (i.e. 13 MOD 5 = remainder of 13/5 = 3)
 ###
 ###  step 1) p·q = N    (p, q prime factors of N) (N is a semi-prime)
-###  step 2) (p-1)·(q-1) = T (Totient)  =>   e·d = T    =>  find   mod T = 1
+###  step 2) (p-1)·(q-1) = T (Totient)  =>   e·d = T    =>  find e.d such as e.d mod T = 1
 ###  step 3) select Public Key: (E)   => a) must be co-prime with N and T  b) must be less that T  c) must NOT be factor of T
 ###  step 4) select Private Key: (D)   => a) (E·D) MOD T = 1
 ###
@@ -66,13 +66,20 @@
 ###
 ### RSA is commutative (keys are commutative): we can encrypt with private key and decrypt with public key
 ###
+### Two numbers are called relatively prime, or coprime, if their greatest common divisor equals 1.[14] For example, 9 and 28 are coprime.
 
 # A partir de dos o más certificados verificar si son vulnerables y en caso afirmativo generar claves privadas capaces de descifrar los mensajes firmados con ellos.
 #
 # > Podéis generar una herramienta única y autónoma o desarrollar un programa con un conjunto de herramientas que permitan realizar la tarea.
 
 #> Qué elementos componen un certificado digital? -> exponente clave publica (e)  y el modulus (n)
-#> Qué elementos componen una clave pub/priv RSA?
+#> Qué elementos componen una clave pub/priv RSA?    
+
+# PEM (Privacy-Enhanced Mail) format is a text-based format for representing cryptographic objects such as keys and certificates. 
+# It uses ASCII characters to represent binary data. However, binary data may contain characters that are not valid or may be interpreted 
+# differently in certain text-based systems. Base64 encoding converts binary data into a set of ASCII characters that can be safely represented 
+# and transmitted in text-based formats.
+# PEM KEY -> DER-encoded data (ascii chars representing binary data) is then base64 encoded (to binary)
 
 
 # 1) Obtener clave pública a partir de un certificado. 
