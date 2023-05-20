@@ -1,7 +1,7 @@
 import pyasn1.codec.der.encoder
 import pyasn1.type.univ
 import base64
-
+import random
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 
@@ -21,9 +21,6 @@ def gcd(a, b):
 #####################################################################
 #   IS PRIME ?
 #####################################################################
-
-import random
-
 def is_prime(n, k=5):
     """Check if a number n is prime using Miller-Rabin primality test.
     
@@ -91,17 +88,6 @@ def recover_key(p, q, e, output_file):
         else:
             return x % m
 
-    # SRC: http://crypto.stackexchange.com/questions/25498/how-to-create-a-pem-file-for-storing-an-rsa-key/25499#25499
-    def pempriv(n, e, d, p, q, dP, dQ, qInv):
-        template = '-----BEGIN RSA PRIVATE KEY-----\n{}-----END RSA PRIVATE KEY-----\n'
-        seq = pyasn1.type.univ.Sequence()
-        for i,x in enumerate([0, n, e, d, p, q, dP, dQ, qInv]):
-            seq.setComponentByPosition(i, pyasn1.type.univ.Integer(x))
-        der = pyasn1.codec.der.encoder.encode(seq)
-        return template.format(base64.encodebytes(der).decode('ascii'))
-    
-
-
     def generate_pkcs8_private_key(p, q, e, d):
         # Calculate the modulus and private exponent
         n = p * q
@@ -134,22 +120,14 @@ def recover_key(p, q, e, output_file):
     dq = modinv(e, (q - 1))
     qi = modinv(q, p)
 
-
+    """ print("p: ",p)
     print("n: ",n)
     print("e: ",e)
     print("d: ",d)
-    print("p: ",dp)
-    print("q: ",dq)
+    print("dp: ",dp)
+    print("dq: ",dq) """
 
-
-    ###################################
-    # CALC PRIVATE KEY USING PKCS1
-    ###################################
-    """ key = pempriv(n, e, d, p, q, dp, dq, qi)
-    print("PEM-PRIV : ({})".format(len(key)))
-    print(key) """
-
-    
+    if not d: return None
     ###################################
     # CALC PRIVATE KEY USING PKCS8
     ###################################

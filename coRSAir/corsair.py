@@ -93,6 +93,34 @@
 #  BigNumber: division rusa
 #
 
+#######################################################################################
+# MAX MESSAGE LENGTH
+#######################################################################################
+# Maximum Message Size = Key Size - Padding Overhead
+# For a 1024-bit RSA key with PKCS#1 v1.5 padding, the padding overhead is typically around 11 bytes. 
+# Therefore, the maximum message size would be: Maximum Message Size = 128 bytes - 11 bytes = 117 bytes
+# When using OAEP (Optimal Asymmetric Encryption Padding) with RSA, the maximum message size that can be encrypted 
+# depends on the key size and the parameters used in the padding scheme.
+# OAEP padding involves adding additional padding bytes to the message to enhance security. The exact number 
+# of padding bytes added depends on the specific parameters used, including the hash function and mask generation function.
+# With RSA-OAEP, the maximum message size is determined by the following formula:
+# Maximum Message Size = Key Size - 2 * Hash Length - 2
+# The "Key Size" refers to the size of the RSA key in bytes, and the "Hash Length" is the length of the hash function 
+# output used in the OAEP padding scheme.
+# For example, with a 1024-bit RSA key and using SHA-256 as the hash function, the hash length would be 256 bits or 32 bytes. 
+# Substituting these values into the formula, we get:
+# Maximum Message Size = 1024/8 - 2 * 32 - 2 = 86 bytes
+# Therefore, with a 1024-bit RSA key and SHA-256 as the hash function in the OAEP padding scheme, the maximum message size 
+# would be approximately 86 bytes.
+# It's important to note that this calculation assumes no additional structure or headers in the message and considers only 
+# the impact of OAEP padding on the available message space. Other factors, such as the RSA implementation and any 
+# library-specific limitations, may also affect the maximum message size.
+# It's recommended to consult the documentation or specifications of the specific RSA implementation or library being used for 
+# precise information on the maximum message size with OAEP padding.
+
+
+
+
 import rsa          # https://stuvel.eu/python-rsa-doc/
 
 
