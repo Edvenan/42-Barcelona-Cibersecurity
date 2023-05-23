@@ -1,0 +1,30 @@
+#######################################
+# Installing docker from WSL-Ubuntu
+#######################################
+sudo snap install docker
+
+#######################################
+# Downloading & running Centos image
+#######################################
+
+# You can download and run this image using the following commands:
+------------------------------------------------------------------
+docker pull docker pull centos:7
+docker run --name onion –-hostname onion -i -t centos:7 /bin/bash
+
+# from outside the running container, run the following command to enter into the container:
+------------------------------------------------------------------
+docker exec -it onion  /bin/bash
+
+#######################################
+# Centos7: install basic packages
+#######################################
+sudo yum install bash-completion
+sudo yum instlal nano
+sudo yum install sudo
+
+#######################################
+# colorful prompt
+#######################################
+/root> nano .basrc
+	export PS1="\[\e[31m\][\[\e[m\]\[\e[38;5;172m\]\u\[\e[m\]@\[\e[38;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\\$"
