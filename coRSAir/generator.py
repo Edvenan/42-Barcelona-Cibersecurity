@@ -58,7 +58,7 @@ def generate_coprime(p):
     max_value = (10 ** len(str(p))) - 1
 
     # Start from the minimum value and check for a prime co-prime number
-    rand = random.randint(1, 50)
+    rand = random.randint(1, 25)
     count = 0
     q = min_value
     while True:
@@ -126,11 +126,17 @@ def modinv(a, m):
         raise ValueError("The modular inverse does not exist.")
     return x % m
 
+# Helper function to clean screen at eexecution time
+def clean():
+    # For Windows
+    if os.name == 'nt':
+        _ = os.system('cls')
+    # For macOS and Linux
+    else:
+        _ = os.system('clear')
+        
 # text file encrypter
 def text_file_encrypter(public_key, filename):
-    """ # Load the RSA public key from the input file
-    with open(filename, "rb") as f:
-        public_key = serialization.load_pem_public_key(f.read()) """
 
     public_key = serialization.load_pem_public_key(public_key)
     # Encrypt the message: a sentence of 5 or 6 words
@@ -151,22 +157,7 @@ def text_file_encrypter(public_key, filename):
 
     #print("Message encrypted and saved to:", new_filename)    
 
-
-
-# Generate encrypted files
-# read pub key files
-""" files = []
-with os.scandir('./keys/') as entries:
-    for entry in entries:
-        # if file has 'pubkey' prefix, we add it to the 'files' list.
-        if entry.name.split(sep="_")[0] == "pubkey":
-            files.append(entry.path)
-for file in files:
-    text_file_encrypter(file) """
             
-
-
-
 ######################################
 # MAIN
 ######################################
@@ -182,6 +173,9 @@ def main():
     args = parser.parse_args()
 
     if args.number:
+        # Clearing the Screen
+        clean()
+
         # Generate public Keys, private keys and encrypted files
         generate_rsa_keys(args.number)
       
