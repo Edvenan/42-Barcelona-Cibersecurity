@@ -4,7 +4,7 @@ from Crypto.PublicKey import RSA
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 import os
-from lorem.text import TextLorem
+from lorem.text import TextLorem   #pip install lorem
 from loading import ft_progress
 
 
