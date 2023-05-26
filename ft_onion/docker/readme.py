@@ -8,10 +8,11 @@
 # SSH CONTAINER
 #########################
 # move to folder with 'Dockerfile'
-# docker build -t nginx-ssh .
+# docker build -t nginx-ssh-ssl-tsl .
 
-# docker run -d -p 80:80 -p 4242:22 --name TOR nginx-ssh
-# docker run -d -p 80:80 -p 4242:22 --device=/dev/dri -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name TOR nginx-ssh
+# docker run -d -p 80:80 -p 4242:4242 --name TOR nginx-ssh-ssl-tsl
+# docker run -d -p 80:80 -p 4242:4242 --device=/dev/dri -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name TOR nginx-ssh-ssl-tsl
+# docker run -d -p 80:80 -p 4242:4242 -p 443:443 --name TOR nginx-ssh-ssl-tsl
 
 
 #########################
