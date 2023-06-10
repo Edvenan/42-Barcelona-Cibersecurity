@@ -34,3 +34,18 @@ ft_onion/docker/ssh/id_rsa.pub
 01 - Python module_00/ex02/.DS_Store
 .gitignore
 ft_otp/ftp2.py
+02 - Python Module 02/.DS_Store
+.gitignore
+02 - Python Module 02/ex00/__pycache__/book.cpython-311.pyc
+02 - Python Module 02/ex00/__pycache__/recipe.cpython-311.pyc
+02 - Python Module 02/ex01/__pycache__/game.cpython-310.pyc
+02 - Python Module 02/ex02/__pycache__/vector.cpython-310.pyc
+02 - Python Module 02/ex02/__pycache__/vector.cpython-311.pyc
+02 - Python Module 02/ex03/__pycache__/generator.cpython-310.pyc
+02 - Python Module 02/ex04/__pycache__/eval.cpython-311.pyc
+02 - Python Module 02/ex05/__pycache__/the_bank.cpython-310.pyc
+02 - Python Module 02/ex05/__pycache__/the_bank.cpython-311.pyc
+module_01/.DS_Store
+module_01/ex01/__pycache__/game.cpython-310.pyc
+module_01/ex02/__pycache__/vector.cpython-310.pyc
+module_01/ex03/__pycache__/generator.cpython-310.pyc
