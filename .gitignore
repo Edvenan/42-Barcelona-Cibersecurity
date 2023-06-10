@@ -26,3 +26,11 @@ arachnida/log.txt
 .vscode/launch.json
 ft_otp/ftp2.py
 ft_onion/docker/ps_script.ps1
+ft_otp/ftp2.py
+ft_onion/docker/ssh/id_rsa
+.gitignore
+ft_onion/docker/ssh/id_rsa.pub
+01 - Python module_00/.DS_Store
+01 - Python module_00/ex02/.DS_Store
+.gitignore
+ft_otp/ftp2.py
