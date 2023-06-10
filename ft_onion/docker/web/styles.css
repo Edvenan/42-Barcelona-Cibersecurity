@@ -1,0 +1,438 @@
+@keyframes mover_abajo {
+    0% {    opacity: 0;
+            transform: translatey(-100px);}
+    100% {  opacity: 1;
+            transform: translate(0);}
+}
+
+@keyframes mover_arriba {
+    0% {    opacity: 0;
+        transform: translatey(100px);}
+100% {  opacity: 1;
+        transform: translate(0);}
+}
+
+@keyframes mover_dcha {
+    0% {    opacity: 0;
+        transform: translatex(-100px);}
+100% {  opacity: 1;
+        transform: translate(0);}
+}
+
+@keyframes mover_izq {
+    0% {    opacity: 0;
+        transform: translatex(100px);}
+100% {  opacity: 1;
+        transform: translate(0);}
+}
+
+.izq{
+    animation: mover_izq 2s ease-in;
+}
+.dcha{
+    animation: mover_dcha 2s ease-in;
+}
+.arriba{
+    animation: mover_arriba 2s ease-in;
+}
+.abajo{
+    animation: mover_abajo 2s ease-in;
+}
+
+/* Fixem max_width i centrem contingut, afegint un padding per que quedi tot enmarcat */
+body {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+/* Definim estil del canto típic a aplicar a totes les boxes ppals. */
+.box_border{
+        border: 10px solid black;
+}
+
+/* Definim altura típica a aplicar a totes les sub-boxes */
+.box_height{
+    height: 10px;
+}
+
+/* Definim estil dels botons de la barra superior de navegació */
+.btn{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+}
+
+/* Enfosquim font dels botons quan passem mouse per sobre (mouse-over / roll-over) */
+.btn:hover {
+    opacity: 1;
+}
+
+/* imatge de fons i estil de la capçalera (icona, menú, foto ppal i text ppal.) */
+#header {
+    background-image: url("images/header.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 165% cover;
+    height:400px;
+    position:relative;
+}
+/* Definim estils per a cada box ppal. i sub-boxes */
+        .box-1 {
+            display: flex;
+            justify-content:space-between;
+            padding: 10px;
+            margin: 0 auto;
+        }
+                    .box-11 {
+                        width:5%;
+                        margin-right: 5px;
+                    }
+                    .box-12 {
+                        width:75%;
+                        display: flex;
+                        justify-content:space-between;
+
+                    }
+
+                    .box-13 {
+                        width:5%;
+                        margin-left: 5px;
+                        margin-right: 25px;
+                        display: flex;
+                        justify-content:right;
+                    }
+        .box-2 {
+            position:absolute;
+            bottom: 0;
+            margin: 0 auto;
+            width: 100%;
+        }
+                    .box-21 {
+                        /* trnanspartent grey box style */                        
+                        background: rgba(150, 150, 150, 0.3);
+                        margin:auto auto 0px auto;
+                        height: 100px;
+                        width: 88%;
+                        padding-top: 30px;
+                        /* font style */                        
+                        font-family: 'IM Fell Double Pica', serif;
+                        color: #FD7B54;
+                        font-size: 33px;
+                        text-align: center;
+                        opacity: .8;
+
+                        
+                    }
+.box_wrapper{
+    display: flex;
+    margin:10px 0;
+}
+
+            .box-3 {
+                background:#D8D7D7;
+                width: 80%;
+                padding: 10px;
+                border-right: 5px solid white;
+            }
+                .box-31 {
+                    display: flex;
+                    justify-content: space-between;
+
+                }
+                    .box-311 {
+                        background: #F5F1F1;
+                        width: 50%;
+                        margin-right: 10px;
+                        padding: 10px;
+                    }
+                            .box-3111 {
+                                background-image: url(images/sakura.jpg);
+                                background-position: center;
+                                background-size: cover;
+                                height: 200px;
+                                color: #e6dd88;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 15px;
+                                display: flex;
+                                align-items: flex-end;
+                                padding-left:5px
+                            }
+                            .box-3112 {
+                                background: #F08080;
+                                margin: 5px auto 19px auto;
+                                padding:10px 0px 2px 5px;
+                                color: #FAF0E9;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 22px;
+                                letter-spacing: 2px;
+                            }
+                            .box-3113 {
+                                margin: 5px auto 19px auto;
+                                column-count: 2;
+                                column-gap: 20px;
+                                padding-left:5px;
+                                color: #747373;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            }
+                            .box-3114 {
+                                margin: 5px auto 0px auto;
+                                padding-left:5px;
+                                color: #969696;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            }
+                    .box-312 {
+                        background: #F5F1F1;
+                        width:50%;
+                        margin-left: 10px;
+                        padding: 10px;
+                    }
+                            .box-3121 {
+                                background-image: url(images/comida.jpg);
+                                background-position: center;
+                                background-size: cover;
+                                height: 200px;
+                                color: #e6dd88;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 15px;
+                                display: flex;
+                                align-items: flex-end;
+                                padding-left:5px
+                            }
+                            .box-3122 {
+                                background: #F08080;
+                                margin: 5px auto 19px auto;
+                                padding:10px 0px 2px 5px;
+                                color: #FAF0E9;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 22px;
+                                letter-spacing: 2px;
+                            }
+                            .box-3123 {
+                                margin: 5px auto 19px auto;
+                                column-count: 2;
+                                column-gap: 20px;
+                                padding-left:5px;
+                                color: #747373;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            }
+                            .box-3124 {
+                                margin: 5px auto 0px auto;
+                                padding-left:5px;
+                                color: #969696;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            }
+                .box-32 {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top:10px;
+                    margin-bottom:10px
+                }
+                    .box-321 {
+                        background: #F5F1F1;
+                        width: 50%;
+                        margin-right: 10px;
+                        padding: 10px;
+                    }
+                            .box-3211 {
+                                background-image: url(images/fuji.jpg);
+                                background-position: center;
+                                background-size: cover;
+                                height: 200px;
+                                color: #e6dd88;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 15px;
+                                display: flex;
+                                align-items: flex-end;
+                                padding-left:5px
+                            }
+                            .box-3212 {
+                                background: #F08080;
+                                margin: 5px auto 19px auto;
+                                padding:10px 0px 2px 5px;
+                                color: #FAF0E9;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 22px;
+                                letter-spacing: 2px;
+                            }
+                            .box-3213 {
+                                margin: 5px auto 19px auto;
+                                column-count: 2;
+                                column-gap: 20px;
+                                padding-left:5px;
+                                color: #747373;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            }
+                            .box-3214 {
+                                margin: 5px auto 0px auto;
+                                padding-left:5px;
+                                color: #969696;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            }
+                    .box-322 {
+                        background: #F5F1F1;
+                        width:50%;
+                        margin-left: 10px;
+                        padding: 10px;
+                    }
+                            .box-3221 {
+                                background-image: url(images/noche.jpg);
+                                background-position: center;
+                                background-size: cover;
+                                height: 200px;
+                                color: #e6dd88;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 15px;
+                                display: flex;
+                                align-items: flex-end;
+                                padding-left:5px
+                            }
+                            .box-3222 {
+                                background: #F08080;
+                                margin: 5px auto 19px auto;
+                                padding:10px 0px 2px 5px;
+                                color: #FAF0E9;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 22px;
+                                letter-spacing: 2px;
+                            }
+                            .box-3223 {
+                                margin: 5px auto 19px auto;
+                                column-count: 2;
+                                column-gap: 20px;
+                                padding-left:5px;
+                                color: #747373;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            }
+                            .box-3224 {
+                                margin: 5px auto 0px auto;
+                                padding-left:5px;
+                                color: #969696;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            }
+                .box-33 {
+                    padding-top: 10px;
+                    text-align: center;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                }
+
+            .box-4 {
+                background:#D8D7D7;
+                width: 20%;
+                padding: 10px;
+                border-left: 5px solid white;
+            }
+                .box-41 {
+                    padding-top: 20px;
+                    text-align: center;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    font-weight: bold;
+                    font-size: 18px;
+                    color: black;
+                }
+                .box-42 {
+                    margin-top: 15px;
+                    text-align: center;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    color: black;
+                }
+
+.box-5 {
+    background: #F5F1F1;
+    text-align: center;
+    padding: 10px 0px;
+    color: #747373;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-right: 10px solid #D8D7D7;
+    border-left: 10px solid #D8D7D7
+}
+
+/* Medium devices (landscape tablets, 768px and down to 600px) */
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+    /* For tablets: */
+    .box_wrapper {
+        display: block;
+    }
+    
+            .box-3 {
+                border: none;
+                border-bottom: 5px solid white;
+                width:auto;
+            }
+        
+            .box-4 {
+                border: none;
+                border-top: 5px solid white;
+                width:auto;
+            }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .btn{
+        font-size: 12px;
+    }
+            .box-1 {
+                display: block;
+                border-bottom: 0px;
+                text-align: center;
+            }
+                    .box-11 {
+                        width: auto;
+                        margin: 0;
+                    }
+                    .box-12 {
+                        display: block;
+                        width: auto;
+                        margin: 10px 0;
+                    }
+                    .box-13 {
+                        display: block;
+                        width: auto;
+                        margin: 0;
+                    }
+
+                    .box-21 {
+                        font-size: 20px;
+                    }
+    .box_wrapper {
+        display: block;
+    }
+    
+            .box-3 {
+                border: none;
+                border-bottom: 5px solid white;
+                width:auto;
+            }
+                    .box-31 {
+                        display: block;
+                    }
+                            .box-311 {
+                                width:auto;
+                                margin: 0 0 10px 0;
+                            }
+                            .box-312 {
+                                width:auto;
+                                margin: 0 0 10px 0;
+                            }
+                    .box-32 {
+                        display: block;
+                    }
+                            .box-321 {
+                                width:auto;
+                                margin: 0 0 10px 0;
+                            }
+                            .box-322 {
+                                width:auto;
+                                margin: 0 0 10px 0;
+                            }
+            .box-4 {
+                border: none;
+                border-top: 5px solid white;
+                width:auto;
+            }
+}

@@ -1,4 +1,6 @@
 services:
   web:
     build: .
-    container_name: TOR
+    image: ft_onion
+    hostname: onion
+    container_name: onion

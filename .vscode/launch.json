@@ -6,11 +6,16 @@
     "configurations": [
 
         {
+            "cwd": "${fileDirname}",
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": [],
+            //"args": ["-r", "https://www.42barcelona.com/es"],
+            //"args": ["-r","-l","1","https://rodalies.gencat.cat/es/inici/"],
+            //"args": ["https://www.42barcelona.com/es"],
+            //"args":["-g", "key.hex"],
+            //"args":["-k", "ft_otp.key"],
             "console": "integratedTerminal",
             "justMyCode": true,
             "purpose": ["debug-in-terminal"]

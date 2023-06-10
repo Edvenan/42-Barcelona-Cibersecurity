@@ -84,3 +84,100 @@
 
 # obtain the hash.onion
 # cat var/lib/tor/hidden_service/hostname
+
+
+##################################################
+# SSH KEYS FOR SSH AUTHENTICATION
+##################################################
+
+# To implement strong passwords or SSH keys for SSH authentication, follow these steps:
+
+# 1) Generate SSH Key Pair (if not already done):
+#   Open a terminal or command prompt.
+#   Use the ssh-keygen command to generate an SSH key pair.
+#   Choose an appropriate location to save the key pair (e.g., ~/.ssh/id_rsa).
+#   This will generate two files: id_rsa (private key) and id_rsa.pub (public key).
+#   Set a strong passphrase for the private key when prompted.
+"       ssh-keygen -t rsa -b 2048       "
+    
+# 2) Copy the public key to the server & Configure SSH Server:
+#   Use the ssh-copy-id command to copy the public key to the server.
+#   Enter your password when prompted. This command will copy the public key to the server and add it to
+#   the authorized keys list.  
+"    ssh-copy-id -i ~/.ssh/id_rsa.pub -p 4242 edvenan@172.18.0.2        "
+
+"       https://www.ssh.com/academy/ssh/copy-id                         "
+#   Test SSH connection without a password.
+"       ssh username@server_ip                                          "
+"       ssh -i ./ssh/id_rsa -p 4242 172.18.0.2                          "
+
+#   After copying the public key, you should be able to SSH into the server without entering a password:
+# 
+# 3) Disable password authentication (optional):
+#   Once you've confirmed that SSH key-based authentication is working, you may choose to disable password 
+#   authentication for increased security.
+#   Open the SSH server configuration file on the server using a text editor. The file location may vary, but 
+#   common locations include /etc/ssh/sshd_config or /etc/sshd_config.
+#   Look for the line #PasswordAuthentication yes and change it to PasswordAuthentication no. If the line 
+#   doesn't exist, add it.
+"       sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config     "
+#   Save the file and exit the text editor.
+#   Restart the SSH server for the changes to take effect. The command may vary depending on your Linux 
+#   distribution. For example:
+#   Copy code
+"        sudo service ssh restart       "
+
+
+# 4) Configure SSH Client ??
+#   Copy the public key generated in Step 1 (usually located in ~/.ssh/id_rsa.pub).
+#   Connect to the SSH client machine.
+#   Open the authorized_keys file in the SSH user's home directory (e.g., ~/.ssh/authorized_keys) using a text
+#   editor.
+#   Paste the copied public key into a new line in the authorized_keys file.
+#   Save the changes and exit the editor.
+
+    sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+    sed -i 's/#AuthorizedKeysFile/AuthorizedKeysFile/' /etc/ssh/sshd_config
+    
+# 4) Test SSH Key-Based Authentication:
+#   Disconnect any existing SSH sessions.
+#   Attempt to connect to the SSH server from the client machine using SSH.
+#   If the key-based authentication is set up correctly, you should be prompted for the passphrase (if used) 
+#   and successfully log in without entering a password.
+
+# By following these steps, you will have implemented SSH key-based authentication, which provides stronger 
+# security compared to password-based authentication. Ensure that you securely manage and protect the private 
+# key and passphrase associated with the SSH key pair.
+
+
+###########################
+# nmap AGRESSIVE SCANNING
+###########################
+nmap -A -p- 172.18.0.2
+
+
+###########################
+# CREATE DOCKER IMAGE
+###########################
+"       https://www.dataset.com/blog/create-docker-image/                   "
+
+" sudo docker commit --author Eduard_Vendrell onion onion_image       "
+# will be stored in:   /var/lib/docker/images 
+
+###########################
+# PUSH DOCKER IMAGE to DOCKER HUB
+###########################
+"      https://docs.docker.com/get-started/04_sharing_app/             "
+sudo docker tag onion_image:latest edvenan/nginx-ssh-tor:onion
+sudo docker login -u edvenan
+sudo docker push edvenan/nginx-ssh-tor:onion
+
+"       https://hub.docker.com/repository/docker/edvenan/nginx-ssh-tor/general      "
+
+##################################
+# FIND PID USING A PORT
+##################################
+WINDOWS: netstat -ano | findstr :80
+        kill the process (PID) in TaskManager_>Details-> PID
+LINUX: netstat -tuln 
+
