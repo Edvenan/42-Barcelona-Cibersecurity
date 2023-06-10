@@ -1,0 +1,75 @@
+
+------------------------------------------------------
+-        DOWNLOADED FILES: 21                        -
+-        REPEATED (Skipped) FILES: 4                 -
+------------------------------------------------------
+-        VISITED LINKS: 1                            -
+-        REPEATED (Skipped) LINKS: 0                 -
+-        OUT OF DOMAIN LINKS: 0                      -
+------------------------------------------------------
+
+------------------------------------------------------
+-                  DOWNLOADED FILES                  -
+------------------------------------------------------
+-     URL            # FILES                   FILES -
+------------------------------------------------------
+
+
+https://rodalies.gencat.cat/es/inici/: 21 images :
+        https://rodalies.gencat.cat/.content/00_home/07_Imatges_navegacio/1.jpg
+        https://rodalies.gencat.cat/.content/00_home/07_Imatges_navegacio/imagen-atencion-al-cliente.jpg
+        https://rodalies.gencat.cat/.content/00_home/07_Imatges_navegacio/3.jpg
+        https://rodalies.gencat.cat/.content/00_home/07_Imatges_navegacio/4.jpg
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2023/03_01_590K_Abonaments/20200920_143517.jpg_1714805132.jpg
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2023/05_02_Incidencia_Gava/IMG_20210529_125200.jpg_223078711.jpg
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2022/08_08-Abono-gratuito/Grafica_2-Cuatrimestre-2023-Ab.Recurrente_CAT_MAVs-Parkeon.png_223078711.png
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2023/00_Diapositives/destacats-Tjove.jpg_223078711.jpg
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2023/01_26_Patinets/Patinets_destacats-web.jpg_223078711.jpg
+        https://rodalies.gencat.cat/web/resources/fwkResponsive/fpca_horaries/img/ico_r11.png
+        https://rodalies.gencat.cat/web/resources/fwkResponsive/fpca_horaries/img/ico_r17.png
+        https://rodalies.gencat.cat/web/resources/fwkResponsive/fpca_horaries/img/ico_r14.png
+        https://rodalies.gencat.cat/web/resources/fwkResponsive/fpca_horaries/img/ico_r13.png
+        https://rodalies.gencat.cat/web/resources/fwkResponsive/fpca_horaries/img/ico_r15.png
+        https://rodalies.gencat.cat/web/resources/fwkResponsives/common/img/NG_ico_rss.png_196546587.png
+        https://rodalies.gencat.cat/web/resources/fwkResponsives/common/img/NG_ico_twitter.png_196546587.png
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2023/05_02_Incidencia_Gava/IMG_20210529_125200.jpg_1527095780.jpg
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2023/05_03_T_grup/TMOB.jpg_1527095780.jpg
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2023/04_27_Centres_de_Seguretat/27-smartsecuritystation.jpg_1527095780.jpg
+        http://rodalies.gencat.cat/web/resources/fwk/comuns/img/avatar.jpg
+        https://rodalies.gencat.cat/web/resources/fwk/comuns/img/avatar.jpg
+
+------------------------------------------------------
+-              REPEATED (Skipped) FILES              -
+------------------------------------------------------
+-     URL            # FILES                   FILES -
+------------------------------------------------------
+
+
+https://rodalies.gencat.cat/es/inici/: 4 repeated images :
+        https://rodalies.gencat.cat/web/resources/fwkResponsives/common/img/NG_ico_rss.png_196546587.png
+        https://rodalies.gencat.cat/web/resources/fwkResponsives/common/img/NG_ico_twitter.png_196546587.png
+        http://rodalies.gencat.cat/web/resources/fwk/comuns/img/avatar.jpg
+        https://rodalies.gencat.cat/web/.content/01_Actualitat/2023/03_01_590K_Abonaments/20200920_143517.jpg_1714805132.jpg
+
+------------------------------------------------------
+-                  VISITED LINKS                     -
+------------------------------------------------------
+- URL                  # LINKS                LINKS  -
+------------------------------------------------------
+
+
+https://rodalies.gencat.cat/es/inici/: 0 links :
+
+------------------------------------------------------
+-                REPEATED (Skipped) LINKS            -
+------------------------------------------------------
+- URL                  # LINKS                LINKS  -
+------------------------------------------------------
+
+
+------------------------------------------------------
+-               OUT OF DOMAIN LINKS                  -
+------------------------------------------------------
+- URL                  # LINKS                LINKS  -
+------------------------------------------------------
+

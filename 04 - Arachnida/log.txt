@@ -1,0 +1,1081 @@
+
+------------------------------------------------------
+-        DOWNLOADED FILES: 63                        -
+-        REPEATED (Skipped) FILES: 415               -
+-        CORRUPTED FILES: 0                          -
+------------------------------------------------------
+-        VISITED LINKS: 26                           -
+-        REPEATED (Skipped) LINKS: 196               -
+-        OUT OF DOMAIN LINKS: 262                    -
+------------------------------------------------------
+
+------------------------------------------------------
+-                  DOWNLOADED FILES                  -
+------------------------------------------------------
+-     URL            # FILES                   FILES -
+------------------------------------------------------
+
+
+https://42barcelona.com: 19 images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/11/42-Barcelona-web-2.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Chicas-estudiantes-42-Barcelona.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1.png
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Estudiantes-42-Barcelona-Mesa.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/42-Barcelona-Conjunto.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/02/Fases-de-Inscripción-Web.jpeg
+        https://www.42barcelona.com/wp-content/uploads/2020/10/Mapa-del-Empleo-CA-1.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/es: 1 images :
+        https://www.42barcelona.com/wp-content/uploads/2019/10/mapa-empleo.jpg
+
+https://www.42barcelona.com/admissio/: 4 images :
+        https://www.42barcelona.com/wp-content/uploads/2020/04/42-Madrid-Galleries.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/12/42-Barcelona-Empleo-del-Futuro-1920x967.jpg
+        https://www.42barcelona.com/wp-content/uploads/2019/10/arrow-phase-2.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/logo_100-1.png
+
+https://www.42barcelona.com/filosofia-42-2/: 7 images :
+        https://www.42barcelona.com/wp-content/uploads/2019/11/comecocos@2x.png
+        https://www.42barcelona.com/wp-content/uploads/2022/01/42-Barcelona-Estudiantes.jpg
+        https://www.42barcelona.com/wp-content/uploads/2019/10/peer2peer-1.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/comecocos-1.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/ceros-1.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/arrow-turn-1.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/linkedin-1.png
+
+https://www.42barcelona.com/actualitat/: 10 images :
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/K9A2306-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/3-1-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-500x500.png
+        https://www.42barcelona.com/wp-content/uploads/2023/02/HEADII-500x500.png
+        https://www.42barcelona.com/wp-content/uploads/2023/02/5-500x500.png
+        https://www.42barcelona.com/wp-content/uploads/2023/02/FoYPdvaXsBATZyF-500x500.jpeg
+        https://www.42barcelona.com/wp-content/uploads/2023/02/4-1-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/02/1-e1675335341143-500x500.jpg
+
+https://www.42barcelona.com/faqs-2/: 1 images :
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-bn-2.png
+
+https://www.42barcelona.com/escuela-42/empresas_ca/: 4 images :
+        https://www.42barcelona.com/wp-content/uploads/2021/09/IML_7899-1.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/10/Captura-de-pantalla-2022-10-28-a-las-17.13.34-1.png
+        https://www.42barcelona.com/wp-content/uploads/2022/10/Captura-de-pantalla-2022-10-28-a-las-17.15.35.png
+        https://www.42barcelona.com/wp-content/uploads/2022/10/Captura-de-pantalla-2022-10-28-a-las-17.17.12.png
+
+https://candidatura.42barcelona.com/users/sign_up: 1 images :
+        https://candidatura.42barcelona.com/uploads/admissions/campus/background_image/45/candidatura.jpg
+
+https://www.42barcelona.com/actualitat/el-salt-a-la-piscina-de-langela/: 4 images :
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed-1366x621.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/1-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/3-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/4-compressed.jpg
+
+https://www.42barcelona.com/actualitat/🌴-noves-piscines-de-destiu-💦/: 1 images :
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo-1366x621.jpg
+
+https://www.42barcelona.com/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-dona/: 5 images :
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1366x621.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/2.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/4.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/5.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/1.png
+
+https://www.42barcelona.com/es/admision/: 1 images :
+        https://www.42barcelona.com/wp-content/uploads/2019/11/escuela42-madrid-fundaciontelefonica-video-1920x967.jpg
+
+https://www.42barcelona.com/es/actualidad/: 4 images :
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1-500x500.png
+        https://www.42barcelona.com/wp-content/uploads/2023/02/ciberseguridad-castellano-500x500.png
+        https://www.42barcelona.com/wp-content/uploads/2023/02/3-2-e1675781776886-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/02/1-500x500.jpg
+
+https://www.42barcelona.com/es/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-mujer/: 1 images :
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1-1366x621.png
+
+------------------------------------------------------
+-              REPEATED (Skipped) FILES              -
+------------------------------------------------------
+-     URL            # FILES                   FILES -
+------------------------------------------------------
+
+
+https://42barcelona.com: 5 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+
+https://www.42barcelona.com/es: 22 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/11/42-Barcelona-web-2.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Chicas-estudiantes-42-Barcelona.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1.png
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Estudiantes-42-Barcelona-Mesa.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/42-Barcelona-Conjunto.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/02/Fases-de-Inscripción-Web.jpeg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://42barcelona.com/es: 23 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/11/42-Barcelona-web-2.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Chicas-estudiantes-42-Barcelona.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1.png
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Estudiantes-42-Barcelona-Mesa.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/42-Barcelona-Conjunto.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/02/Fases-de-Inscripción-Web.jpeg
+        https://www.42barcelona.com/wp-content/uploads/2019/10/mapa-empleo.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/: 24 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/11/42-Barcelona-web-2.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Chicas-estudiantes-42-Barcelona.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1.png
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Estudiantes-42-Barcelona-Mesa.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/42-Barcelona-Conjunto.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/02/Fases-de-Inscripción-Web.jpeg
+        https://www.42barcelona.com/wp-content/uploads/2020/10/Mapa-del-Empleo-CA-1.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/admissio/: 17 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/arrow-phase-2.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/arrow-phase-2.png
+
+https://www.42barcelona.com/filosofia-42-2/: 15 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/actualitat/: 15 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/contacto/: 15 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/faqs-2/: 14 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+
+https://www.42barcelona.com/escuela-42/empresas_ca/: 15 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://42barcelona.com/: 24 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/11/42-Barcelona-web-2.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Chicas-estudiantes-42-Barcelona.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1.png
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Estudiantes-42-Barcelona-Mesa.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/42-Barcelona-Conjunto.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/02/Fases-de-Inscripción-Web.jpeg
+        https://www.42barcelona.com/wp-content/uploads/2020/10/Mapa-del-Empleo-CA-1.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/actualitat/el-salt-a-la-piscina-de-langela/: 15 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com#: 24 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/11/42-Barcelona-web-2.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Chicas-estudiantes-42-Barcelona.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/8m_cast-1.png
+        https://www.42barcelona.com/wp-content/uploads/2022/01/Estudiantes-42-Barcelona-Mesa.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/01/42-Barcelona-Conjunto.jpg
+        https://www.42barcelona.com/wp-content/uploads/2022/02/Fases-de-Inscripción-Web.jpeg
+        https://www.42barcelona.com/wp-content/uploads/2020/10/Mapa-del-Empleo-CA-1.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://candidatura.42barcelona.com/users/sign_in: 1 repeated images :
+        https://candidatura.42barcelona.com/uploads/admissions/campus/background_image/45/candidatura.jpg
+
+https://www.42barcelona.com/actualitat/🌴-noves-piscines-de-destiu-💦/: 15 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-dona/: 15 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/03/pacto-digital-logo-w-500x500-1.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/es/admision/: 19 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/04/42-Madrid-Galleries.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/arrow-phase-2.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/arrow-phase-2.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/arrow-phase-2.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/logo_100-1.png
+
+https://www.42barcelona.com/es/filosofia-42/: 21 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2019/11/comecocos@2x.png
+        https://www.42barcelona.com/wp-content/uploads/2022/01/42-Barcelona-Estudiantes.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/peer2peer-1.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/comecocos-1.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/ceros-1.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/arrow-turn-1.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/linkedin-1.png
+
+https://www.42barcelona.com/es/actualidad/: 20 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/K9A2306-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/03/3-1-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/02/5-500x500.png
+        https://www.42barcelona.com/wp-content/uploads/2023/02/4-1-500x500.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/es/contacto/: 14 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/es/faqs/: 13 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+
+https://www.42barcelona.com/es/empresas/: 18 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/09/IML_7899-1.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+        https://www.42barcelona.com/wp-content/uploads/2022/10/Captura-de-pantalla-2022-10-28-a-las-17.13.34-1.png
+        https://www.42barcelona.com/wp-content/uploads/2022/10/Captura-de-pantalla-2022-10-28-a-las-17.15.35.png
+        https://www.42barcelona.com/wp-content/uploads/2022/10/Captura-de-pantalla-2022-10-28-a-las-17.17.12.png
+
+https://www.42barcelona.com/es/actualidad/el-salto-a-la-pinscina-de-angela/: 18 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2023/04/2-compressed-1366x621.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/1-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/3-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2023/04/4-compressed.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/es/actualidad/🌴nuevas-piscinas-de-verano-💦/: 15 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/Diseno-sin-titulo-1366x621.jpg
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+https://www.42barcelona.com/es/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-mujer/: 18 repeated images :
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona-300x79.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/1.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/5.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/2.png
+        https://www.42barcelona.com/wp-content/uploads/2023/03/4.png
+        https://www.42barcelona.com/wp-content/uploads/2020/07/Barcelona.png
+        https://www.42barcelona.com/wp-content/uploads/2021/04/Logo-Fundacion-Telefonica-Nuevo.png
+        https://www.42barcelona.com/wp-content/uploads/2021/06/Logo-Generalitat-300x64.png
+        https://www.42barcelona.com/wp-content/uploads/2020/09/logo_barc_activa-300x65.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/themes/escuela-42/images/favicon.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2021/01/Favicon-42.png
+        https://www.42barcelona.com/wp-content/uploads/2019/10/42-v2-2.png
+
+------------------------------------------------------
+-                CORRUPTED FILES                     -
+------------------------------------------------------
+-     URL            # FILES                   FILES -
+------------------------------------------------------
+
+
+------------------------------------------------------
+-                  VISITED LINKS                     -
+------------------------------------------------------
+- URL                  # LINKS                LINKS  -
+------------------------------------------------------
+
+
+https://42barcelona.com: 12 links :
+        https://www.42barcelona.com/es
+        https://www.42barcelona.com/admissio/
+        https://www.42barcelona.com/filosofia-42-2/
+        https://www.42barcelona.com/actualitat/
+        https://www.42barcelona.com/contacto/
+        https://www.42barcelona.com/faqs-2/
+        https://www.42barcelona.com/escuela-42/empresas_ca/
+        https://candidatura.42barcelona.com/users/sign_up
+        https://www.42barcelona.com/actualitat/el-salt-a-la-piscina-de-langela/
+        https://www.42barcelona.com/actualitat/🌴-noves-piscines-de-destiu-💦/
+        https://www.42barcelona.com/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-dona/
+        https://42barcelona.com/
+
+https://www.42barcelona.com/es: 12 links :
+        https://42barcelona.com/es
+        https://www.42barcelona.com/
+        https://www.42barcelona.com/es/admision/
+        https://www.42barcelona.com/es/filosofia-42/
+        https://www.42barcelona.com/es/actualidad/
+        https://www.42barcelona.com/es/contacto/
+        https://www.42barcelona.com/es/faqs/
+        https://www.42barcelona.com/es/empresas/
+        https://candidatura.42barcelona.com/users/sign_up
+        https://www.42barcelona.com/es/actualidad/el-salto-a-la-pinscina-de-angela/
+        https://www.42barcelona.com/es/actualidad/🌴nuevas-piscinas-de-verano-💦/
+        https://www.42barcelona.com/es/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-mujer/
+
+https://42barcelona.com/es: 11 links :
+        https://www.42barcelona.com/
+        https://www.42barcelona.com/es/admision/
+        https://www.42barcelona.com/es/filosofia-42/
+        https://www.42barcelona.com/es/actualidad/
+        https://www.42barcelona.com/es/contacto/
+        https://www.42barcelona.com/es/faqs/
+        https://www.42barcelona.com/es/empresas/
+        https://candidatura.42barcelona.com/users/sign_up
+        https://www.42barcelona.com/es/actualidad/el-salto-a-la-pinscina-de-angela/
+        https://www.42barcelona.com/es/actualidad/🌴nuevas-piscinas-de-verano-💦/
+        https://www.42barcelona.com/es/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-mujer/
+
+https://www.42barcelona.com/: 11 links :
+        https://www.42barcelona.com/admissio/
+        https://www.42barcelona.com/filosofia-42-2/
+        https://www.42barcelona.com/actualitat/
+        https://www.42barcelona.com/contacto/
+        https://www.42barcelona.com/faqs-2/
+        https://www.42barcelona.com/escuela-42/empresas_ca/
+        https://candidatura.42barcelona.com/users/sign_up
+        https://www.42barcelona.com/actualitat/el-salt-a-la-piscina-de-langela/
+        https://www.42barcelona.com/actualitat/🌴-noves-piscines-de-destiu-💦/
+        https://www.42barcelona.com/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-dona/
+        https://42barcelona.com/
+
+https://www.42barcelona.com/admissio/: 7 links :
+        https://www.42barcelona.com/filosofia-42-2/
+        https://www.42barcelona.com/actualitat/
+        https://www.42barcelona.com/contacto/
+        https://www.42barcelona.com/faqs-2/
+        https://www.42barcelona.com/escuela-42/empresas_ca/
+        https://candidatura.42barcelona.com/users/sign_up
+        https://42barcelona.com/
+
+https://www.42barcelona.com/filosofia-42-2/: 0 links :
+
+https://www.42barcelona.com/actualitat/: 0 links :
+
+https://www.42barcelona.com/contacto/: 0 links :
+
+https://www.42barcelona.com/faqs-2/: 0 links :
+
+https://www.42barcelona.com/escuela-42/empresas_ca/: 0 links :
+
+https://candidatura.42barcelona.com/users/sign_up: 0 links :
+
+https://42barcelona.com/: 0 links :
+
+https://www.42barcelona.com/actualitat/el-salt-a-la-piscina-de-langela/: 2 links :
+        https://www.42barcelona.com#
+        https://candidatura.42barcelona.com/users/sign_in
+
+https://www.42barcelona.com#: 0 links :
+
+https://candidatura.42barcelona.com/users/sign_in: 0 links :
+
+https://www.42barcelona.com/actualitat/🌴-noves-piscines-de-destiu-💦/: 0 links :
+
+https://www.42barcelona.com/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-dona/: 0 links :
+
+https://www.42barcelona.com/es/admision/: 5 links :
+        https://www.42barcelona.com/es/filosofia-42/
+        https://www.42barcelona.com/es/actualidad/
+        https://www.42barcelona.com/es/contacto/
+        https://www.42barcelona.com/es/faqs/
+        https://www.42barcelona.com/es/empresas/
+
+https://www.42barcelona.com/es/filosofia-42/: 4 links :
+        https://www.42barcelona.com/es/actualidad/
+        https://www.42barcelona.com/es/contacto/
+        https://www.42barcelona.com/es/faqs/
+        https://www.42barcelona.com/es/empresas/
+
+https://www.42barcelona.com/es/actualidad/: 0 links :
+
+https://www.42barcelona.com/es/contacto/: 0 links :
+
+https://www.42barcelona.com/es/faqs/: 0 links :
+
+https://www.42barcelona.com/es/empresas/: 0 links :
+
+https://www.42barcelona.com/es/actualidad/el-salto-a-la-pinscina-de-angela/: 0 links :
+
+https://www.42barcelona.com/es/actualidad/🌴nuevas-piscinas-de-verano-💦/: 0 links :
+
+https://www.42barcelona.com/es/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-mujer/: 0 links :
+
+------------------------------------------------------
+-                REPEATED (Skipped) LINKS            -
+------------------------------------------------------
+- URL                  # LINKS                LINKS  -
+------------------------------------------------------
+
+
+https://42barcelona.com: 8 skipped links :
+        https://42barcelona.com
+        https://candidatura.42barcelona.com/users/sign_up
+        https://candidatura.42barcelona.com/users/sign_up
+        https://candidatura.42barcelona.com/users/sign_up
+        https://www.42barcelona.com/actualitat/
+        https://www.42barcelona.com/admissio/
+        https://www.42barcelona.com/contacto/
+        https://www.42barcelona.com/faqs-2/
+
+https://www.42barcelona.com/es: 6 skipped links :
+        https://candidatura.42barcelona.com/users/sign_up
+        https://candidatura.42barcelona.com/users/sign_up
+        https://42barcelona.com/es
+        https://www.42barcelona.com/es/admision/
+        https://www.42barcelona.com/es/contacto/
+        https://www.42barcelona.com/es/faqs/
+
+https://42barcelona.com/es: 7 skipped links :
+        https://42barcelona.com/es
+        https://candidatura.42barcelona.com/users/sign_up
+        https://candidatura.42barcelona.com/users/sign_up
+        https://42barcelona.com/es
+        https://www.42barcelona.com/es/admision/
+        https://www.42barcelona.com/es/contacto/
+        https://www.42barcelona.com/es/faqs/
+
+https://www.42barcelona.com/: 0 skipped links :
+
+https://www.42barcelona.com/admissio/: 0 skipped links :
+
+https://www.42barcelona.com/filosofia-42-2/: 0 skipped links :
+
+https://www.42barcelona.com/actualitat/: 0 skipped links :
+
+https://www.42barcelona.com/contacto/: 0 skipped links :
+
+https://www.42barcelona.com/faqs-2/: 0 skipped links :
+
+https://www.42barcelona.com/escuela-42/empresas_ca/: 0 skipped links :
+
+https://candidatura.42barcelona.com/users/sign_up: 0 skipped links :
+
+https://www.42barcelona.com/actualitat/el-salt-a-la-piscina-de-langela/: 0 skipped links :
+
+https://www.42barcelona.com/actualitat/🌴-noves-piscines-de-destiu-💦/: 0 skipped links :
+
+https://www.42barcelona.com/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-dona/: 0 skipped links :
+
+https://42barcelona.com/: 0 skipped links :
+
+https://www.42barcelona.com/es/admision/: 0 skipped links :
+
+https://www.42barcelona.com/es/filosofia-42/: 0 skipped links :
+
+https://www.42barcelona.com/es/actualidad/: 0 skipped links :
+
+https://www.42barcelona.com/es/contacto/: 0 skipped links :
+
+https://www.42barcelona.com/es/faqs/: 0 skipped links :
+
+https://www.42barcelona.com/es/empresas/: 0 skipped links :
+
+https://www.42barcelona.com/es/actualidad/el-salto-a-la-pinscina-de-angela/: 0 skipped links :
+
+https://www.42barcelona.com/es/actualidad/🌴nuevas-piscinas-de-verano-💦/: 0 skipped links :
+
+https://www.42barcelona.com/es/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-mujer/: 0 skipped links :
+
+------------------------------------------------------
+-               OUT OF DOMAIN LINKS                  -
+------------------------------------------------------
+- URL                  # LINKS                LINKS  -
+------------------------------------------------------
+
+
+https://42barcelona.com: 21 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://mapadelempleo.fundaciontelefonica.com/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://www.aepd.es/es/pactodigital
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/aviso-legal-ca/
+        https://legal.fundaciontelefonica.com/politica-de-privacidad-ca/
+        https://legal.fundaciontelefonica.com/politica-de-cookies-ca/
+
+https://www.42barcelona.com/es: 20 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://mapadelempleo.fundaciontelefonica.com/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/new-aviso-legal-es
+        https://legal.fundaciontelefonica.com/new-politica-de-privacidad-es
+        https://legal.fundaciontelefonica.com/politica-de-cookies/
+
+https://42barcelona.com/es: 20 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://mapadelempleo.fundaciontelefonica.com/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/new-aviso-legal-es
+        https://legal.fundaciontelefonica.com/new-politica-de-privacidad-es
+        https://legal.fundaciontelefonica.com/politica-de-cookies/
+
+https://www.42barcelona.com/: 21 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://mapadelempleo.fundaciontelefonica.com/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://www.aepd.es/es/pactodigital
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/aviso-legal-ca/
+        https://legal.fundaciontelefonica.com/politica-de-privacidad-ca/
+        https://legal.fundaciontelefonica.com/politica-de-cookies-ca/
+
+https://www.42barcelona.com/admissio/: 20 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://www.aepd.es/es/pactodigital
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/aviso-legal-ca/
+        https://legal.fundaciontelefonica.com/politica-de-privacidad-ca/
+        https://legal.fundaciontelefonica.com/politica-de-cookies-ca/
+
+https://www.42barcelona.com/actualitat/el-salt-a-la-piscina-de-langela/: 20 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://www.aepd.es/es/pactodigital
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/aviso-legal-ca/
+        https://legal.fundaciontelefonica.com/politica-de-privacidad-ca/
+        https://legal.fundaciontelefonica.com/politica-de-cookies-ca/
+
+https://www.42barcelona.com/actualitat/🌴-noves-piscines-de-destiu-💦/: 22 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://www.eventbrite.es/e/entradas-open-day-42-barcelona-491566778467
+        https://www.eventbrite.es/e/entradas-open-day-weekend-edition-42-barcelona-596588852317
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://www.aepd.es/es/pactodigital
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/aviso-legal-ca/
+        https://legal.fundaciontelefonica.com/politica-de-privacidad-ca/
+        https://legal.fundaciontelefonica.com/politica-de-cookies-ca/
+
+https://www.42barcelona.com/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-dona/: 20 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://www.aepd.es/es/pactodigital
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/aviso-legal-ca/
+        https://legal.fundaciontelefonica.com/politica-de-privacidad-ca/
+        https://legal.fundaciontelefonica.com/politica-de-cookies-ca/
+
+https://www.42barcelona.com/es/admision/: 19 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/new-aviso-legal-es
+        https://legal.fundaciontelefonica.com/new-politica-de-privacidad-es
+        https://legal.fundaciontelefonica.com/politica-de-cookies/
+
+https://www.42barcelona.com/es/filosofia-42/: 19 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/new-aviso-legal-es
+        https://legal.fundaciontelefonica.com/new-politica-de-privacidad-es
+        https://legal.fundaciontelefonica.com/politica-de-cookies/
+
+https://www.42barcelona.com/es/actualidad/el-salto-a-la-pinscina-de-angela/: 19 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/new-aviso-legal-es
+        https://legal.fundaciontelefonica.com/new-politica-de-privacidad-es
+        https://legal.fundaciontelefonica.com/politica-de-cookies/
+
+https://www.42barcelona.com/es/actualidad/🌴nuevas-piscinas-de-verano-💦/: 22 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://www.eventbrite.es/e/491566778467
+        https://www.eventbrite.es/e/491566778467
+        https://www.eventbrite.es/e/596588852317
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/new-aviso-legal-es
+        https://legal.fundaciontelefonica.com/new-politica-de-privacidad-es
+        https://legal.fundaciontelefonica.com/politica-de-cookies/
+
+https://www.42barcelona.com/es/actualidad/42-barcelona-se-suma-al-dia-internacional-de-la-mujer/: 19 out of domain links :
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://42madrid.com
+        https://42urduliz.com
+        https://42malaga.com
+        https://42alicante.com
+        https://www.42sp.org.br/
+        https://twitter.com/42BarcelonaFTef
+        https://www.instagram.com/42barcelonaftef/
+        https://www.facebook.com/fundaciontef
+        https://www.youtube.com/user/fundaciontef
+        https://www.linkedin.com/showcase/42barcelona-fundaciontelefonica/
+        https://fundaciontelefonica.com
+        http://web.gencat.cat/ca/inici/index.html
+        https://www.barcelonactiva.cat/barcelonactiva/cat/index.jsp
+        https://legal.fundaciontelefonica.com/new-aviso-legal-es
+        https://legal.fundaciontelefonica.com/new-politica-de-privacidad-es
+        https://legal.fundaciontelefonica.com/politica-de-cookies/
