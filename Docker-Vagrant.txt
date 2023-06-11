@@ -1,0 +1,67 @@
+
+
+Vagrantfile (Centos7-Docker)
+==============================================================
+Vagrant.configure("2") do |config|
+   config.vm.box = "williamyeh/centos7-docker"
+   config.vm.network "private_network", ip: "172.16.0.100"
+end/ 
+
+VIRTUAL BOX
+==============================================================
+In VirtualBox gui, go to network settings of your VM and seletct Network
+  Adapter 1: NAT
+  Adapter 2: Host-only Network / Name: vagrantnet-vbox2
+
+
+SSH A VM DE VirtualBox
+==============================================================
+ssh vagrant@172.16.0.100
+
+
+Bajar imagen de DockerHub y Ejecutarla en VM
+==============================================================
+(desde la VM)
+docker pull edvenan/nginx-ssh-tor:onion
+
+docker run -d -p 4242:4242 -p 80:80 --name TOR ab93abe9f897 
+
+
+SSH from VM to TOR docker
+==============================================================
+(from VM)
+docker exec -it  TOR /bin/bash
+(or)
+ssh -p 4242 127.17.0.3
+service --status-all
+
+
+Access Web page in VM -> Docker TOR from Host
+==============================================================
+(from browser)> http://127.16.0.100  (the VM port 80 is mapped to TOR's docker port 80)
+
+
+Get the Onion address of the hidden service from Docker TOR
+==============================================================
+Type the alias 'hidden' in the command line
+    > 4dwjlxo6iw3v2372ju2yqisbo6uw6tqv3q2fjzehivhtdfqmft2tylqd.onion
+
+
+Install TOR Browser in HOST
+==============================================================
+https://www.torproject.org/es/download/
+
+Open browser and paste yhe onion address of the hidden service
+
+Voila!!
+
+
+
+Secure SSH from VM to TOR docker
+==============================================================
+ssh-keygen  (pass phrase: ft_onion)
+
+docker cp TOR:~/.ssh/id_rsa.pub ~/
+
+Add PubKey to TOR's authorized_keys
+
