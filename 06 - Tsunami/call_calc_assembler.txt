@@ -14,8 +14,7 @@ _start:
     mov ecx, cmdline
 Movemos la dirección de la cadena cmdline en el registro ECX. Esto nos permite pasar la dirección de la cadena como argumento a la función WinExec.
 
-assembly
-Copy code
+
     ; Llamar a la función WinExec para ejecutar la calculadora
     push 0
     push ecx
@@ -23,21 +22,15 @@ Copy code
     call eax
 Preparamos los argumentos para llamar a la función WinExec. Primero, empujamos un valor cero en la pila como el segundo argumento para indicar que queremos ejecutar el programa en modo predeterminado. Luego, empujamos la dirección de la cadena cmdline en la pila como el primer argumento. Movemos la dirección de la función WinExec en el registro EAX y luego realizamos una llamada a la función WinExec utilizando la instrucción call. Esto ejecutará la calculadora en Windows XP.
 
-assembly
-Copy code
+
     ; Salir del programa
     mov eax, 1
     xor ebx, ebx
     int 0x80
+
 Finalmente, utilizamos instrucciones similares al ejemplo anterior para salir del programa.
 
 Recuerda que este código específico está diseñado para Windows XP y puede no ser compatible con otras versiones de Windows. Además, ten en cuenta que la ejecución de código malicioso sin el consentimiento del usuario puede ser ilegal y dañino.
-
-
-
-
-
-
 
 
 section .data
