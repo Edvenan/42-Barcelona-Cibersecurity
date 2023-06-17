@@ -1,12 +1,22 @@
+# Importing Libraries
 import winreg
-import sqlite3
 import wmi
 import datetime
 import os
+import sys
 import win32com.client
 import psutil
 from loading import ft_progress
+import win32evtlog
+import win32evtlogutil
+import win32con
+import winerror
+from tree import *
+from io import StringIO
 
+####################################################
+# REGISTRY CHANGES
+####################################################
 def get_registry_changes(start_date, end_date):
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
@@ -15,7 +25,13 @@ def get_registry_changes(start_date, end_date):
     registry_key = r"Software"
 
     key = winreg.OpenKey(registry_branch, registry_key, 0, winreg.KEY_READ)
+    header = []
     changes = []
+    
+    header.append("##########################################################")
+    header.append("# REGISTRY CHANGES                                                                #")
+    header.append("##########################################################")
+    
     clean()
     print("Getting registry changes...")
     for i in ft_progress(range(winreg.QueryInfoKey(key)[0])):
@@ -36,30 +52,38 @@ def get_registry_changes(start_date, end_date):
         winreg.CloseKey(subkey)
 
     winreg.CloseKey(key)
+    print("Process completed.")
+    result = header + sorted(changes, reverse = True)
+    return result
 
-    return sorted(changes, reverse = True)
-
-
+####################################################
+# RECENT FILES
+####################################################
 def get_recent_files(start_date, end_date):
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
 
     files = []
+    header = []
+
+    header.append("##########################################################")
+    header.append("# RECENT FILES                                                                          #")
+    header.append("##########################################################")
         
     shell = win32com.client.Dispatch("WScript.Shell")
     recent_files_directory = shell.SpecialFolders("Recent")  # Path to the Recent folder
 
     clean()
     print("Getting recent files...")
-    for (dir_path, dir_names, recent_files) in ft_progress(os.walk(recent_files_directory)):
-        for file in recent_files:
-            full_path = dir_path +"/"+ file
+    for (dir_path, dir_names, recent_files) in os.walk(recent_files_directory):
+        for file in ft_progress(recent_files):
+            full_path = dir_path +"\\"+ file
             if file[-3:] == "lnk":
     
                 creation_time = os.path.getctime(full_path)
                 creation_time = creation_time = datetime.datetime.fromtimestamp(creation_time)
                 modified_time = os.path.getmtime(full_path)
-                modified_time = modified_time = datetime.datetime.fromtimestamp(modified_time)
+                modified_time = datetime.datetime.fromtimestamp(modified_time)
 
                 # Check if the file's last modified date falls within the specified time interval
                 if start_date <= modified_time <= end_date:
@@ -67,14 +91,17 @@ def get_recent_files(start_date, end_date):
                     shell = win32com.client.Dispatch("WScript.Shell")
                     shortcut = shell.CreateShortCut(full_path)
                     file_path = shortcut.Targetpath
-                    # Extract the '.lnk' extension
-                    filename = file_path.rsplit('\\', 1)[-1]
+
                     if os.path.isfile(file_path):
                         files.append(modified_time.strftime("%Y-%m-%d %H:%M:%S") + " - " + file_path)
+ 
+    print("Process completed.")   
+    result = header + sorted(files, reverse = True)
+    return result
 
-    return sorted(files, reverse=True)
-
-
+####################################################
+# INSTALLED PROGRAMS
+####################################################
 def get_installed_programs(start_date, end_date):
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
@@ -83,66 +110,92 @@ def get_installed_programs(start_date, end_date):
     end_date_str = end_date.strftime("%Y%m%d")
 
     programs = []
+    header = []
+
+    header.append("##########################################################")
+    header.append("# INSTALLED PROGRAMS                                                           #")
+    header.append("##########################################################")
 
     wmi = win32com.client.GetObject("winmgmts:")
-    query = f"SELECT InstallDate, Name FROM Win32_Product WHERE InstallDate >= '{start_date_str}' AND InstallDate <= '{end_date_str}'"
-
-    software_items = wmi.ExecQuery(query)
+    query = f"SELECT * FROM Win32_Product WHERE InstallDate >= '{start_date_str}' AND InstallDate <= '{end_date_str}'"
 
     clean()
     print("Getting installed programs...")
+
+    software_items = wmi.ExecQuery(query)
+
     for software in ft_progress(software_items):
         install_date = software.InstallDate
         install_date = datetime.datetime.strptime(install_date, "%Y%m%d")
-        programs.append(install_date.strftime("%Y-%m-%d")  + " - " + software.Name)
+        programs.append(f"{install_date.strftime('%Y-%m-%d')} - {software.Name} - {software.Version} - {software.Vendor} - {software.URLInfoAbout}")
 
-    return sorted(programs, reverse = True)
+    print("Process completed.")
+    result = header + sorted(programs, reverse = True)
+    return result
 
-
+####################################################
+# OPEN PROGRAMS
+####################################################
 def get_open_programs(start_date, end_date):
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
     
     programs = []
+    header = []
+
+    header.append("##########################################################")
+    header.append("# OPEN PROGRAMS                                                                   #")
+    header.append("##########################################################")
 
     clean()
-    print("Getting oprn programs...")
-    for proc in ft_progress(psutil.process_iter(['name', 'create_time'])):
+    print("Getting open programs...")
+
+    for proc in psutil.process_iter(['name', 'create_time']):
         proc_name = proc.info['name']
         create_time = datetime.datetime.fromtimestamp(proc.info['create_time'])
 
         if start_date <= create_time <= end_date:
             programs.append(create_time.strftime("%Y-%m-%d, %H:%M:%S") + " - " + proc_name)
+    
+    print("Process completed.")
+    result = header + sorted(programs, reverse = True)
+    return result
 
-    return sorted(programs, reverse=True)
-
-
-def get_chrome_browsing_history(start_date, end_date):
+####################################################
+# BROWSING HISTORY
+####################################################
+def get_browsing_history(start_date, end_date):
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
+
+    from browser_history import get_history
     
-    history_path = os.path.expanduser("~") + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\History"
-    connection = sqlite3.connect(history_path)
-    cursor = connection.cursor()
-
-    query = "SELECT title FROM urls WHERE last_visit_time >= ? AND last_visit_time <= ?"
-    params = (datetime.datetime.timestamp(start_date), datetime.datetime.timestamp(end_date))
     clean()
-    print("Getting Chrome browsing history...")
-    try:
-        cursor.execute(query, params)
+    outputs = get_history()
 
-    except Exception as err:
-        return ["Browser history is locked. Try closing Chrome before trying again."]
+    # his is a list of (datetime.datetime, url) tuples
+    his = outputs.histories
 
-    browsing_history = [row[0] for row in cursor.fetchall()]
+    browsing_history = []
+    header = []
 
-    cursor.close()
-    connection.close()
-    print("Completed.")
-    return browsing_history
+    header.append("##########################################################")
+    header.append("# BROWSING HISTORY                                                                #")
+    header.append("##########################################################")
 
+    for item in ft_progress(his):
+        browsing_time = item[0].replace(tzinfo=None)
+        
+        if start_date <= browsing_time <= end_date:    
+            browsing_history.append(f"{item[0].strftime('%Y-%m-%d %H:%M:%S')} - {item[1]}")
 
+    print("Process completed.")
+    result = header + sorted(browsing_history, reverse = True)
+    return result
+
+####################################################
+# CONNECTED DEVICES
+####################################################
 def get_connected_devices(start_date, end_date):
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
@@ -151,14 +204,20 @@ def get_connected_devices(start_date, end_date):
     end_date_str = end_date.strftime("%Y%m%d")
     
     devices = []
+    header = []
 
+    header.append("##########################################################")
+    header.append("# CONNECTED DEVICES                                                             #")
+    header.append("##########################################################")
+    
     wmi_connection = wmi.WMI()
     #query = f"SELECT * FROM Win32_PnPEntity WHERE ConfigManagerErrorCode = 0 AND InstallDate >= {start_date_str} AND InstallDate <= {end_date_str}"
-    query = f"SELECT Name, InstallDate, Manufacturer, PNPClass FROM Win32_PnPEntity WHERE ConfigManagerErrorCode = 0 AND Present = True AND Status = 'OK'"
-    conn_devices = wmi_connection.query(query)
+    query = f"SELECT * FROM Win32_PnPEntity WHERE ConfigManagerErrorCode = 0 AND Present = True AND Status = 'OK'"
 
     clean()
     print("Getting connected devices...")
+    conn_devices = wmi_connection.query(query)
+
     for device in ft_progress(conn_devices):
         device_name = device.Name
         device_manufacturer = device.Manufacturer
@@ -174,58 +233,41 @@ def get_connected_devices(start_date, end_date):
             device_installDate = install_date
         else:
             device_installDate = datetime.datetime.now().strftime("%Y-%m-%d")
-        devices.append(f"{device_installDate} - {device_name} - {device_manufacturer} - {device_type}")
+        devices.append(f"{device_installDate} - {device_type} - {device_name} - {device_manufacturer}")
 
-    return sorted(devices, reverse= True)
+    print("Process completed.")
+    result = header + sorted(devices, reverse = True)
+    return result
 
-
-def convert_to_windows_timestamp(date_string):
-    date_obj = datetime.datetime.strptime(date_string, "%Y-%m-%d")
-    windows_timestamp = (date_obj - datetime.datetime(1601, 1, 1)).total_seconds() * 10000000
-    return int(windows_timestamp)
-
-
+####################################################
+# LOG EVENTS
+####################################################
 def get_log_events(start_date, end_date):
     
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
-    start_date = start_date.strftime("%Y%m%d%H%M%S")
-    end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
-    end_date = end_date.strftime("%Y%m%d%H%M%S")
-
-    
-    events = []
-
-    wmi_connection = wmi.WMI()
-    
-    #query = f"SELECT TimeGenerated, User, Type, SourceName, Message, EventCode FROM Win32_NTLogEvent WHERE CAST(TimeGenerated AS DECIMAL) >= CAST('{start_date}' AS DECIMAL) AND CAST(TimeGenerated AS DECIMAL) <= CAST('{end_date}' AS DECIMAL)"
-    query = f"SELECT * FROM Win32_NTLogEvent"    
-    log_events = wmi_connection.ExecQuery(query)
-    
-    clean()
-    print("Accesssing Event Logs...(This step may take a couple of minutes)")
-    for event in ft_progress(log_events):
-        if int(start_date) <= int(event.TimeGenerated.split('.')[0]) <= int(end_date):
-            event_time =datetime.datetime.strptime(event.TimeGenerated[:14], "%Y%m%d%H%M%S").strftime("%Y-%m-%d %H:%M:%S")
-            if (event.Message):
-                events.append(f"{event_time} - {event.User} - {event.Logfile} - {event.Type} - {event.SourceName} - {(event.Message)}")
-            else:
-                events.append(f"{event_time} - {event.User} - {event.Logfile} - {event.Type} - {event.SourceName} - No Message")
-    return sorted(events, reverse= True)
-
-# Importing Libraries
-import win32evtlog
-
-def get_log_events2(start_date, end_date):
-    
-    start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
     end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d")
     
-    events = []
+    #This dict converts the event type into a human readable form
 
+    event_dict={win32con.EVENTLOG_AUDIT_FAILURE:'AUDIT_FAILURE',\
+		  win32con.EVENTLOG_AUDIT_SUCCESS:      'AUDIT_SUCCESS',\
+		  win32con.EVENTLOG_INFORMATION_TYPE:   'INFORMATION',\
+		  win32con.EVENTLOG_WARNING_TYPE:       'WARNING',\
+		  win32con.EVENTLOG_ERROR_TYPE:         'ERROR'}
+
+    events = []
+    header = []
+
+    header.append("##########################################################")
+    header.append("# LOG EVENTS                                                                            #")
+    header.append("##########################################################")
+    
     handle = win32evtlog.OpenEventLog(None, 'System')
     flags = win32evtlog.EVENTLOG_BACKWARDS_READ | win32evtlog.EVENTLOG_SEQUENTIAL_READ
-    total_records = win32evtlog.GetNumberOfEventLogRecords(handle)
-
+    
+    clean()
+    print("Accesssing Event Logs...(This step may take about a minute)")
+    
     while True:
         events_batch = win32evtlog.ReadEventLog(handle, flags, 0)
         if not events_batch:
@@ -234,34 +276,65 @@ def get_log_events2(start_date, end_date):
         for event in events_batch:
             event_time =event.TimeGenerated
             if start_date <= event_time <= end_date:
-                events.append(f"{event.TimeGenerated} - {event.User} - {event.Type} - {event.SourceName} - {event.Message}")
+                
+                #data is recent enough, so print it out
+                computer=str(event.ComputerName)
+
+                cat=str(event.EventCategory)
+
+                src=str(event.SourceName)
+
+                record=str(event.RecordNumber)
+
+                evt_id=str(winerror.HRESULT_CODE(event.EventID))
+
+                evt_type=str(event_dict[event.EventType])
+
+                msg = str(win32evtlogutil.SafeFormatMessage(event, 'system')).replace("\n", "--")
+
+           
+                events.append(f"{event_time.strftime('%Y-%m-%d %H:%M:%S')} - {computer} - {evt_type:<15} - {cat} - {record} - {evt_id} - {src} - {msg}")
 
     win32evtlog.CloseEventLog(handle)
-    return events
+    print("Process completed.")
+    result = header + sorted(events, reverse = True)
+    return result
 
-# Importing Libraries
-from directory_tree import display_tree
+####################################################
+# USER'S FOLDER TREE
+####################################################
+def display_directory_tree(option):
+    
+    # user's home folder
+    home = os.path.expanduser("~")
+    
+    header = ""
 
-def display_directory_tree(root_dir):
+    header +="##########################################################\n"
+    header +="# USER'S HOME DIRECTORY TREE                                              #\n"
+    header +="##########################################################\n"
+    
     clean()
-    print("Getting directory tree...")
-    output = display_tree(root_dir, string_rep=True)
-    return output
+    print("Collecting user's home directory tree...(This process may take up to a few minutes, depending on how large the directory tree is)")
 
-
-def display_directory_tree2(startpath):
+    tree = get_fs_tree(home, include_files=option, force_absolute_ids=False)
     
-    output = ""
-    
-    for root, dirs, files in os.walk(startpath):
-        level = root.replace(startpath, '').count(os.sep)
-        indent = ' ' * 4 * (level)
-        output += ('{}{}/'.format(indent, os.path.basename(root)))+"\n"
-        subindent = ' ' * 4 * (level + 1)
-        #for f in files:
-        #    print('{}{}'.format(subindent, f))
-    return output
+    # Redirect stdout to a StringIO object
+    stdout_orig = sys.stdout
+    output = StringIO()
+    sys.stdout = output
 
+    # Display the tree structure
+    tree.show()
+
+    # Retrieve the contents from the StringIO object
+    output = output.getvalue()
+
+    # Reset stdout to its original value
+    sys.stdout = stdout_orig
+    
+    print("Process completed.")
+    return header+output
 
 ####################################################
 # Helper function to clean screen at execution time
