@@ -59,9 +59,13 @@ Voila!!
 
 Secure SSH from VM to TOR docker
 ==============================================================
+
+copy the RSA keys to VM:   
+create edvenan user and password
+copy keys to edvenan home/.ssh (assing proper rights to privKey)
+ssh -p 4242 127.17.0.3
+
 ssh-keygen  (pass phrase: ft_onion)
-
-docker cp TOR:~/.ssh/id_rsa.pub ~/
-
+docker cp id_rsa.pub TOR:~/.ssh
 Add PubKey to TOR's authorized_keys
 
