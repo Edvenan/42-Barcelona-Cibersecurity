@@ -249,7 +249,7 @@ def get_log_events(start_date, end_date):
     
     #This dict converts the event type into a human readable form
 
-    event_dict={win32con.EVENTLOG_AUDIT_FAILURE:'AUDIT_FAILURE',\
+    event_dict={0:'UNKNOWN',win32con.EVENTLOG_AUDIT_FAILURE:'AUDIT_FAILURE',\
 		  win32con.EVENTLOG_AUDIT_SUCCESS:      'AUDIT_SUCCESS',\
 		  win32con.EVENTLOG_INFORMATION_TYPE:   'INFORMATION',\
 		  win32con.EVENTLOG_WARNING_TYPE:       'WARNING',\

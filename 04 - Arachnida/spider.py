@@ -47,6 +47,70 @@ out_of_domain_dict = {}
 skipped_dict = {}
 depth_counter = 0
 
+################################
+# SPIDER !!!!
+################################
+def spider(url, depth=5, recursive=False, path="./data/"):
+    # scrape images from the given url up to the specified depth level
+    
+    # declare global variables
+    global visited_links
+    global image_inventory
+    global link_inventory
+    global domain
+    global depth_counter
+    global visited_link_counter
+    global skipped_link_counter
+    global skipped_dict
+ 
+    if not validators.url(url):
+        sys.tracebacklimit = 0
+        raise TypeError("The provided url is not valid.")
+    
+    # Check if link has already been visited
+    if url in visited_links:
+        skipped_link_counter += 1
+        skipped_dict[url]=[]
+
+    else:
+        # if not visited,
+        # Set the domain if it's the first url to visit
+        if len(visited_links) == 0:
+            # Get the root domain of the URL
+            #domain =  urlparse(url).netloc.split('.')[-2] + '.' + urlparse(url).netloc.split('.')[-1]
+            domain = urlparse(url).netloc
+            print("DOMAIN: ", domain,"\n")
+
+        # add url to visited_links set
+        visited_links.add(url)
+        visited_link_counter += 1
+        link_inventory[url]=[]
+    
+        image_dict = {}
+        link_dict = {}
+        
+        if depth == 0:
+            image_links, soup = get_image_links(url)
+            if image_links and soup:
+                image_dict[url] = image_links
+                download_images(image_dict, path, url)
+                image_inventory.update(image_dict)
+
+
+
+        elif depth > 0:
+            image_links, soup = get_image_links(url)
+            if image_links and soup:
+                image_dict[url] = image_links
+                download_images(image_dict, path, url)
+                image_inventory.update(image_dict)
+
+
+            if recursive:
+                link_dict[url] = get_internal_links(url, soup)
+                link_inventory.update(link_dict)
+                for link in link_dict[url]:
+                    spider(link, depth-1, recursive, path)
 
 ######################################
 # get_image_links()
@@ -224,76 +288,6 @@ def download_images(image_dict, path, url):
                 else:
                     corrupt_files[url] = [value]
                 
-                
-                
-################################
-# SPIDER !!!!
-################################
-def spider(url, depth=5, recursive=False, path="./data/"):
-    # scrape images from the given url up to the specified depth level
-    
-    # declare global variables
-    global visited_links
-    global image_inventory
-    global link_inventory
-    global domain
-    global depth_counter
-    global visited_link_counter
-    global skipped_link_counter
-    global skipped_dict
- 
-    if not validators.url(url):
-        sys.tracebacklimit = 0
-        raise TypeError("The provided url is not valid.")
-    
-    # Check if link has already been visited
-    if url in visited_links:
-        skipped_link_counter += 1
-        skipped_dict[url]=[]
-
-    else:
-        # if not visited,
-        # Set the domain if it's the first url to visit
-        if len(visited_links) == 0:
-            # Get the root domain of the URL
-            #domain =  urlparse(url).netloc.split('.')[-2] + '.' + urlparse(url).netloc.split('.')[-1]
-            domain = urlparse(url).netloc
-            print("DOMAIN: ", domain,"\n")
-
-        # add url to visited_links set
-        visited_links.add(url)
-        visited_link_counter += 1
-        link_inventory[url]=[]
-    
-        image_dict = {}
-        link_dict = {}
-        
-        if depth == 0:
-            image_links, soup = get_image_links(url)
-            if image_links and soup:
-                image_dict[url] = image_links
-                download_images(image_dict, path, url)
-                image_inventory.update(image_dict)
-
-
-
-        elif depth > 0:
-            image_links, soup = get_image_links(url)
-            if image_links and soup:
-                image_dict[url] = image_links
-                download_images(image_dict, path, url)
-                image_inventory.update(image_dict)
-
-
-            if recursive:
-                link_dict[url] = get_internal_links(url, soup)
-                link_inventory.update(link_dict)
-                for link in link_dict[url]:
-                    spider(link, depth-1, recursive, path)
-
-       
-
-
 ######################################
 # get_internal_links()
 ######################################
@@ -443,7 +437,6 @@ def log_and_print_out():
         print("-        OUT OF DOMAIN LINKS: {:<3}                    -".format(out_of_domain_counter))
         print("------------------------------------------------------")
         print("\n")
-    
     
     
 

@@ -151,13 +151,19 @@ class App:
                     # print final line
                     print('    '+'-'*61)
                 else:
-                    print("    No metadata\n")
-            
+                    print("    No metadata")
+                    print('    '+'-'*61)
             # if file has pdf extension, process it
             elif ext == 'pdf':
                 print('    '+'-'*26+'PDF INFO'+'-'*26)
                 # read the pdf file
-                pdf = pikepdf.Pdf.open(self.file)
+                try:
+                    pdf = pikepdf.Pdf.open(self.file)
+                except:
+                    print(f"    This .pdf file is corrupted.")
+                    # print final line
+                    print('    '+'-'*61)
+                    exit(1)
                 docinfo = pdf.docinfo
                 for key, value in docinfo.items():
                     if str(value).startswith("D:"):
@@ -171,7 +177,13 @@ class App:
                 print('    '+'-'*23+' DOCX INFO '+'-'*23)
                 # read the doc/docx file
                 filename = os.path.basename(self.file)
-                doc:Document = docx.Document(self.file)
+                try:
+                    doc:Document = docx.Document(self.file)
+                except:
+                    print("    This .docx file is corrupted.")
+                    # print final line
+                    print('    '+'-'*61)
+                    exit(1)
                 props:CoreProperties = doc.core_properties
                 metadata={}
                 #metadata['Filepath'] = self.file
@@ -300,13 +312,17 @@ class App:
         if self.file.split(".")[-1] == 'pdf':
             self.display.insert(END,'    '+'-'*26+'PDF INFO'+'-'*26+"\n")
             # read the pdf file
-            pdf = pikepdf.Pdf.open(self.file)
-            docinfo = pdf.docinfo
-            for key, value in docinfo.items():
-                if str(value).startswith("D:"):
-                    # pdf datetime format, convert to python datetime
-                    value = transform_date(str(pdf.docinfo["/CreationDate"]))
-                self.display.insert(END,f'    {key[1:]:26}: {value}'+"\n")
+            try:
+                pdf = pikepdf.Pdf.open(self.file)
+                docinfo = pdf.docinfo
+                for key, value in docinfo.items():
+                    if str(value).startswith("D:"):
+                        # pdf datetime format, convert to python datetime
+                        value = transform_date(str(pdf.docinfo["/CreationDate"]))
+                    self.display.insert(END,f'    {key[1:]:26}: {value}'+"\n")
+            except:
+                self.display.insert(END,f'    This .pdf file is corrupted.'+"\n")
+
         else:
             return
         
@@ -318,14 +334,17 @@ class App:
             self.display.insert(END,'    '+'-'*23+' DOCX INFO '+'-'*23+"\n")
             # read the doc/docx file
             filename = os.path.basename(self.file)
-            doc:Document = docx.Document(self.file)
-            props:CoreProperties = doc.core_properties
-            metadata={}
-            #metadata['Filepath'] = self.file
-            #metadata['Filename'] = filename
-            metadata.update({str(p):getattr(props, p) for p in dir(props) if not str(p).startswith('_')})
-            for key, value in metadata.items():
-                self.display.insert(END,f'    {key.capitalize():26}: {value}'+"\n")
+            try:
+                doc:Document = docx.Document(self.file)
+                props:CoreProperties = doc.core_properties
+                metadata={}
+                #metadata['Filepath'] = self.file
+                #metadata['Filename'] = filename
+                metadata.update({str(p):getattr(props, p) for p in dir(props) if not str(p).startswith('_')})
+                for key, value in metadata.items():
+                    self.display.insert(END,f'    {key.capitalize():26}: {value}'+"\n")
+            except:
+                self.display.insert(END,f'    This .docx file is corrupted.'+"\n")
         else:
             return
  
