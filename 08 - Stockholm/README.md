@@ -25,15 +25,20 @@ Fernet is a high-level cryptographic symmetric encryption scheme that provides a
 
 The Fernet function provides a simple interface to encrypt and decrypt data using the Fernet symmetric encryption scheme. It takes a key as input and returns a Fernet object that can be used for encryption and decryption operations.
 
+Fernet is built on top of a number of standard cryptographic primitives. Specifically it uses:
+
+-AES in CBC mode with a 128-bit key for encryption; using PKCS7 padding.
+-HMAC using SHA256 for authentication.
+-Initialization vectors are generated using os.urandom().
+
+**Limitations**
+Fernet is ideal for encrypting data that easily fits in memory. As a design feature it does not expose unauthenticated bytes. This means that the complete message contents must be available in memory, making Fernet generally unsuitable for very large files at this time.
 
 **"stockholm.py"** This is a script aimed to infect the user's '/home/$USER/infection' folder causing the same effects as WannaCry virus did to thousands of users back in 2017. Basically, the script renames and encrypts using symmetric key encryption all files matching certain extensions.
 Fortunately, this timearound the script includes also the vaccine. (2023, Eduard Vendrell)")
 
 ## Instructions
 usage: stockholm.py [-h] [-help] [-version] [-infect "Secret Key"] [-reverse "Secret Key"] [-silent]
-
-(stockholm.py) This is a script aimed to infect the user's '/home/$USER/infection' folder causing the same effects as WannaCry virus did to thousands of users back in 2017. Basically, the script renames and encrypts using symmetric key encryption all files matching certain extensions. Fortunately, this timearound the script includes also the vaccine. (2023,
-Eduard Vendrell)
 
 options:
   -h, --help            show this help message and exit
